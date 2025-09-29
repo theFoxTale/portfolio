@@ -1,9 +1,11 @@
 .black-section {
     background-color: var(--portfolio-black);
+    color: var(--portfolio-white);
 }
 
 .white-section {
     background-color: var(--portfolio-white);
+    color: var(--portfolio-black);
 }
 
 .content-container {
