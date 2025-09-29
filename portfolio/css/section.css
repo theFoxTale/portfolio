@@ -18,7 +18,7 @@
     height: 60px;
 }
 
-.header-navigation {
+.portfolio-navigation {
     list-style: none;
     display: flex;
     gap: 40px;
@@ -27,7 +27,7 @@
     padding: 0;
 }
 
-.header-navigation-text {
+.navigation-text {
     font-size: 16px;
     line-height: 24px;
     text-transform: uppercase;
@@ -36,6 +36,10 @@
     transition: color 1s;
 }
 
-.header-navigation-text:hover {
+.navigation-text:hover {
     color: var(--portfolio-red);
+}
+
+.no-hover {
+    pointer-events: none;
 }
