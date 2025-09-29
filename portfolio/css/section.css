@@ -1,0 +1,12 @@
+.black-section {
+    background-color: var(--portfolio-black);
+}
+
+.white-section {
+    background-color: var(--portfolio-white);
+}
+
+.content-container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
