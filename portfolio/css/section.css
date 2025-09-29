@@ -11,6 +11,7 @@
 .content-container {
     max-width: 1440px;
     margin: 0 auto;
+    height: 100%;
 }
 
 .header-background {
@@ -44,4 +45,10 @@
 
 .no-hover {
     pointer-events: none;
+}
+
+.flex-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

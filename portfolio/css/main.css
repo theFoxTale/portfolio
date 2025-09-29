@@ -19,12 +19,34 @@ body {
 
 p {
     cursor: default;
+    margin: 0;
+}
+
+span {
+    cursor: default;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 116px;
+    line-height: 132px;
+    text-transform: uppercase;
+    cursor: default;
+    margin: 40px 0;
 }
 
 h2 {
     font-size: 32px;
     line-height: 40px;
     text-transform: uppercase;
+    cursor: default;
+}
+
+h3 {
+    font-size: 20px;
+    line-height: 28px;
+    text-transform: uppercase;
+    cursor: default;
 }
 
 input:focus {
@@ -42,4 +64,20 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+.text-mulish-400 {
+    font-family: Mulish, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.text-mulish-500 {
+    font-family: Mulish, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 16px;
 }

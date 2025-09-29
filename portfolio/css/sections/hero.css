@@ -1,3 +1,92 @@
 .hero-section {
     height: 862px;
+    padding: 60px 0;
+}
+
+.hero-background {
+    gap: 40px;
+}
+
+.year-background {
+    width: 60px;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    gap: 12px;
+}
+
+.vertical-line {
+    height: 536px;
+    border-left: 1px solid var(--portfolio-white);
+}
+
+.numbers-text {
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 54px;
+}
+
+.h1-container {
+    display: flex;
+    flex-direction: column;
+    gap: 160px;
+    align-self: end;
+}
+
+.achievements-background {
+    gap: 60px;
+    justify-content: start;
+}
+
+.number-background {
+    display: flex;
+    gap: 8px;
+}
+
+.down-link {
+    text-decoration: none;
+    color: var(--portfolio-white);
+    transition: color 1s;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.down-link:hover {
+    color: var(--portfolio-red);
+}
+
+.first-hero-image-background {
+    width: 220px;
+}
+
+.first-hero-image {
+    width: 220px;
+    height: 220px;
+    background-image: url("../../assets/img/webp/img-10.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.second-hero-image-background {
+    width: 280px;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.second-hero-image {
+    width: 280px;
+    height: 374px;
+    background-image: url("../../assets/img/webp/img-11.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.presentation-text {
+    text-align: right;
 }
