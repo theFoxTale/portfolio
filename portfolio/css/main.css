@@ -28,8 +28,8 @@ span {
 
 h1 {
     font-weight: 300;
-    font-size: 116px;
-    line-height: 132px;
+    font-size: clamp(68px, 7.142857vw + 13.143px, 116px);
+    line-height: clamp(80px, 7.738vw + 20.573px, 132px);
     text-transform: uppercase;
     cursor: default;
     margin: 40px 0;
@@ -112,14 +112,7 @@ select:-webkit-autofill:focus {
 
 @media (max-width: 768px) {
     h1 {
-        font-size: 68px;
-        line-height: 80px;
-    }
-}
-
-@media (max-width: 380px) {
-    h1 {
-        font-size: 56px;
-        line-height: 64px;
+        font-size: clamp(56px, 3.09278vw + 44.248px, 68px);
+        line-height: clamp(64px, 4.1237vw + 48.33px, 80px);
     }
 }

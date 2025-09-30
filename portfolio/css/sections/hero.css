@@ -18,14 +18,14 @@
 }
 
 .vertical-line {
-    height: 536px;
+    height: clamp(432px, 16.9vw + 292.64px, 536px);
     border-left: 1px solid var(--portfolio-white);
 }
 
 .hero-right-part {
     padding: 0 20px;
     display: flex;
-    gap: 40px;
+    gap: clamp(20px, 2.98vw - 2.86px, 40px);
 }
 
 .numbers-text {
@@ -63,10 +63,13 @@
 }
 
 .first-hero-image-background {
-    width: 220px;
-    transition: opacity 1s;
+    width: clamp(150px, 15vw, 220px);
+    margin: 0;
+    opacity: 1;
+    transition: opacity 3s;
     align-self: center;
     flex-shrink: 0;
+    display: flex;
 }
 
 .first-hero-image {
@@ -79,7 +82,7 @@
 }
 
 .second-hero-image-background {
-    width: 280px;
+    width: clamp(220px, 8.93vw + 151.43px, 280px);
     margin: 0;
     flex-shrink: 0;
     display: flex;
@@ -107,30 +110,25 @@
     }
 }
 
-@media (max-width: 768px) {
-    .vertical-line {
-        height: 432px;
-    }
-
-    .hero-right-part {
-        gap: 20px;
-    }
-
+@media (max-width: 1320px) {
     .first-hero-image-background {
-        display: none;
         opacity: 0;
-    }
-
-    .second-hero-image-background {
-        width: 220px;
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 1300px) {
+    .first-hero-image-background {
+        display: none;
+    }
+}
+
+@media (max-width: 750px) {
     .hero-left-part {
         display: none;
     }
+}
 
+@media (max-width: 690px) {
     .hero-right-part {
         flex-direction: column;
     }
