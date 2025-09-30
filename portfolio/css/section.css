@@ -52,3 +52,9 @@
     justify-content: center;
     align-items: center;
 }
+
+.flex-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}

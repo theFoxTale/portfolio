@@ -16,13 +16,6 @@
     gap: 40px;
 }
 
-.about-main-text {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
 .about-photo {
     width: 440px;
     height: 440px;

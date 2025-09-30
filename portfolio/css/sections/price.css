@@ -10,14 +10,8 @@
     padding: 0 20px;
 }
 
-.package-text-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
 .price-blocks {
-    gap: 64px
+    gap: 64px;
 }
 
 .price-block {
@@ -27,12 +21,6 @@
     flex-direction: column;
     justify-content: space-between;
     border: 1px solid var(--portfolio-black);
-}
-
-.price-elements-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
 }
 
 .price-ul {
