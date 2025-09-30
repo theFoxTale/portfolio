@@ -1,5 +1,5 @@
 .portfolio-section {
-    height: 914px;
+    height: 100%;
     padding: 60px 0;
 }
 
@@ -108,4 +108,12 @@
     height: 534px;
     background-image: url("../../assets/img/webp/img-12.webp");
     align-self: start;
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 380px) {
+
 }

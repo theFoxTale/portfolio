@@ -85,3 +85,14 @@ select:-webkit-autofill:focus {
     line-height: 16px;
     cursor: default;
 }
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 68px;
+        line-height: 80px;
+    }
+}
+
+@media (max-width: 380px) {
+
+}

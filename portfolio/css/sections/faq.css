@@ -1,5 +1,5 @@
 .faq-section {
-    height: 724px;
+    height: 100%;
     padding: 60px 0;
 }
 
@@ -79,4 +79,14 @@
 
 .hidden-text {
     display: none;
+}
+
+@media (max-width: 768px) {
+    .faq-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 380px) {
+
 }

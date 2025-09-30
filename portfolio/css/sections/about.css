@@ -1,5 +1,5 @@
 .about-section {
-    height: 748px;
+    height: 100%;
     padding: 60px 0;
 }
 
@@ -17,8 +17,8 @@
 }
 
 .about-photo {
-    width: 440px;
-    height: 440px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -34,4 +34,21 @@
 
 .about-photo-third {
     background-image: url("../../assets/img/webp/img-photographer-3.webp");
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+    }
+
+    .about-photo-third {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@media (max-width: 380px) {
+
 }

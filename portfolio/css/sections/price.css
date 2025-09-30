@@ -1,5 +1,5 @@
 .price-section {
-    height: 736px;
+    height: 100%;
     padding: 60px 0;
 }
 
@@ -15,12 +15,12 @@
 }
 
 .price-block {
+    width: 320px;
     height: 500px;
     padding: 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex-basis: 25%;
     border: 1px solid var(--portfolio-black);
     transition: border-color 1s;
 }
@@ -39,4 +39,15 @@
     margin: 0;
     list-style-type: square;
     list-style-position: inside;
+}
+
+@media (max-width: 768px) {
+    .price-blocks {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 380px) {
+
 }
