@@ -58,3 +58,20 @@
     flex-direction: column;
     gap: 12px;
 }
+
+.button-div {
+    height: 60px;
+    font-size: 16px;
+    line-height: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--portfolio-white);
+    background-color: var(--portfolio-black);
+    transition: background-color 1s,
+    color 1s;
+}
+
+.button-div:hover {
+    background-color: var(--portfolio-red);
+    color: var(--portfolio-black);
+}

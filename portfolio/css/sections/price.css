@@ -29,26 +29,14 @@
     border-color: var(--portfolio-red);
 }
 
+.price-block:hover .button-div {
+    background-color: var(--portfolio-red);
+    color: var(--portfolio-black);
+}
+
 .price-ul {
     padding: 0;
     margin: 0;
     list-style-type: square;
     list-style-position: inside;
-}
-
-.button-div {
-    height: 60px;
-    font-size: 16px;
-    line-height: 60px;
-    text-align: center;
-    text-transform: uppercase;
-    color: var(--portfolio-white);
-    background-color: var(--portfolio-black);
-    transition: background-color 1s,
-                color 1s;
-}
-
-.button-div:hover {
-    background-color: var(--portfolio-red);
-    color: var(--portfolio-black);
 }

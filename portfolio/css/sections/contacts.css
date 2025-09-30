@@ -1,3 +1,42 @@
 .contacts-section {
-    height: 200px;
+    margin: 40px 0 20px 0;
+}
+
+.contacts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.inputs-container {
+    gap: 8px;
+}
+
+.text-input {
+    width: 380px;
+    height: 60px;
+    padding: 0 12px;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    border: 1px solid var(--portfolio-black);
+    transition: border-color 1s;
+}
+
+.text-input::placeholder {
+    color: var(--portfolio-grey);
+    font-family: Oswald, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.text-input:hover {
+    border-color: var(--portfolio-red);
+}
+
+.contacts-button {
+    width: 200px;
 }
