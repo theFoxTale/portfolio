@@ -2,3 +2,81 @@
     height: 724px;
     padding: 60px 0;
 }
+
+.faq-container {
+    justify-content: space-between;
+    align-items: start;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.questions-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+}
+
+.question-div {
+    border-bottom: 1px solid var(--portfolio-white);
+}
+
+.question-header {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: color 1s;
+}
+
+.question-header:hover {
+    color: var(--portfolio-red);
+}
+
+.question-button-container {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-button-element {
+    position: absolute;
+    background-color: var(--portfolio-white);
+    transition: transform 1s ease,
+                background-color 1s;
+}
+
+.question-header:hover .question-button-element {
+    background-color: var(--portfolio-red);
+}
+
+.question-button-element.horizontal {
+    width: 15px;
+    height: 1px;
+}
+
+.question-button-element.vertical {
+    width: 1px;
+    height: 15px;
+}
+
+/* Состояние "+" (по умолчанию) */
+.question-button-container:not(.active) .question-button-element.vertical {
+    transform: rotate(0deg);
+}
+
+/* Состояние "-" при активации */
+.question-button-container.active .question-button-element.vertical {
+    transform: rotate(90deg);
+}
+
+.answer-text {
+    margin-bottom: 20px;
+}
+
+.hidden-text {
+    display: none;
+}

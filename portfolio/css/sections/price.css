@@ -20,7 +20,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-basis: 25%;
     border: 1px solid var(--portfolio-black);
+    transition: border-color 1s;
+}
+
+.price-block:hover {
+    border-color: var(--portfolio-red);
 }
 
 .price-ul {
