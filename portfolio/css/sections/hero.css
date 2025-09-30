@@ -15,6 +15,8 @@
     transform: rotate(180deg);
     gap: 12px;
     flex-shrink: 0;
+    transition: opacity 3s;
+    opacity: 1;
 }
 
 .vertical-line {
@@ -122,7 +124,19 @@
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 800px) {
+    .hero-right-part {
+        gap: 0;
+    }
+}
+
+@media (max-width: 764px) {
+    .hero-left-part {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 759px) {
     .hero-left-part {
         display: none;
     }
@@ -131,6 +145,7 @@
 @media (max-width: 690px) {
     .hero-right-part {
         flex-direction: column;
+        gap: 20px;
     }
 
     .down-link {
