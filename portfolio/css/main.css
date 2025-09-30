@@ -40,6 +40,7 @@ h2 {
     line-height: 40px;
     text-transform: uppercase;
     cursor: default;
+    margin: 0;
 }
 
 h3 {
