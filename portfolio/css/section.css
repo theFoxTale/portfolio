@@ -55,10 +55,6 @@
     transition: color 1s;
 }
 
-.navigation-text:hover {
-    color: var(--portfolio-red);
-}
-
 .no-hover {
     pointer-events: none;
 }
@@ -88,11 +84,6 @@
                 color 1s;
 }
 
-.button-div:hover {
-    background-color: var(--portfolio-red);
-    color: var(--portfolio-black);
-}
-
 .menu-logo-container {
     transition: opacity 1s;
     opacity: 0;
@@ -112,16 +103,27 @@
     transition: background-color 1s;
 }
 
-.menu-logo-container:hover .menu-line {
-    background-color: var(--portfolio-red);
-}
-
 .menu-upper-line {
     width: 12px;
 }
 
 .menu-lower-line {
     width: 20px;
+}
+
+@media (hover: hover) {
+    .navigation-text:hover {
+        color: var(--portfolio-red);
+    }
+
+    .button-div:hover {
+        background-color: var(--portfolio-red);
+        color: var(--portfolio-black);
+    }
+
+    .menu-logo-container:hover .menu-line {
+        background-color: var(--portfolio-red);
+    }
 }
 
 @media (max-width: 768px) {

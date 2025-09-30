@@ -62,10 +62,6 @@
     gap: 8px;
 }
 
-.down-link:hover {
-    color: var(--portfolio-red);
-}
-
 .first-hero-image-background {
     width: 220px;
     transition: opacity 1s;
@@ -103,6 +99,12 @@
 .presentation-text {
     text-align: right;
     margin: 0;
+}
+
+@media (hover: hover) {
+    .down-link:hover {
+        color: var(--portfolio-red);
+    }
 }
 
 @media (max-width: 768px) {

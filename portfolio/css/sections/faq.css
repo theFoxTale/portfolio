@@ -33,10 +33,6 @@
     transition: color 1s;
 }
 
-.question-header:hover {
-    color: var(--portfolio-red);
-}
-
 .question-button-container {
     width: 15px;
     height: 15px;
@@ -52,10 +48,6 @@
     background-color: var(--portfolio-white);
     transition: transform 1s ease,
                 background-color 1s;
-}
-
-.question-header:hover .question-button-element {
-    background-color: var(--portfolio-red);
 }
 
 .question-button-element.horizontal {
@@ -84,6 +76,16 @@
 
 .hidden-text {
     display: none;
+}
+
+@media (hover: hover) {
+    .question-header:hover .question-button-element {
+        background-color: var(--portfolio-red);
+    }
+
+    .question-header:hover {
+        color: var(--portfolio-red);
+    }
 }
 
 @media (max-width: 768px) {
