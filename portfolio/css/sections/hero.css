@@ -106,8 +106,8 @@
     }
 
     .first-hero-image-background {
+        display: none;
         opacity: 0;
-        width: 0;
     }
 
     .first-hero-image {
@@ -125,5 +125,21 @@
 }
 
 @media (max-width: 380px) {
+    .hero-background {
+        flex-direction: column;
+        padding: 0 20px;
+    }
 
+    .year-background {
+        display: none;
+    }
+
+    .down-link {
+        display: none;
+    }
+
+    .second-hero-image-background {
+        align-self: end;
+        gap: 60px;
+    }
 }

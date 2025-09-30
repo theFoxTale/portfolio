@@ -142,4 +142,10 @@
     .content-container {
         max-width: 380px;
     }
+
+    .portfolio-navigation {
+        height: 340px;
+        display: flex;
+        flex-direction: column;
+    }
 }

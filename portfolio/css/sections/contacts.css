@@ -16,9 +16,10 @@
 }
 
 .text-input {
+    max-width: 380px;
+    width: 100%;
     flex-grow: 1;
     flex-shrink: 1;
-    max-width: 380px;
     height: 60px;
     padding: 0 12px;
     font-size: 16px;
@@ -51,5 +52,11 @@
 }
 
 @media (max-width: 380px) {
+    .inputs-container {
+        flex-direction: column;
+    }
 
+    .contacts-button {
+        width: 100%;
+    }
 }
