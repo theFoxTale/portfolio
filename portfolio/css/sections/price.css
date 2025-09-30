@@ -11,7 +11,7 @@
 }
 
 .price-blocks {
-    gap: 64px;
+    gap: 40px;
 }
 
 .price-block {
@@ -41,13 +41,13 @@
     list-style-position: inside;
 }
 
+.price-ul > li:not(:last-child) {
+    margin-bottom: 4px;
+}
+
 @media (max-width: 768px) {
     .price-blocks {
         gap: 20px;
         flex-wrap: wrap;
     }
-}
-
-@media (max-width: 380px) {
-
 }

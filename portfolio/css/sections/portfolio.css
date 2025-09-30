@@ -7,6 +7,11 @@
     padding: 0 20px;
 }
 
+.portfolio-text {
+    margin: 12px 0 40px 0;
+    max-width: 360px;
+}
+
 .slider-container {
     max-width: 100%;
     height: 654px;
@@ -61,6 +66,7 @@
 .portfolio-5 {
     width: 280px;
     height: 374px;
+    margin-bottom: 40px;
     background-image: url("../../assets/img/webp/img-17.webp");
 }
 
@@ -108,12 +114,4 @@
     height: 534px;
     background-image: url("../../assets/img/webp/img-12.webp");
     align-self: start;
-}
-
-@media (max-width: 768px) {
-
-}
-
-@media (max-width: 380px) {
-
 }
