@@ -74,6 +74,7 @@ select:-webkit-autofill:focus {
     font-style: normal;
     font-size: 16px;
     line-height: 24px;
+    cursor: default;
 }
 
 .text-mulish-500 {
@@ -82,4 +83,5 @@ select:-webkit-autofill:focus {
     font-style: normal;
     font-size: 12px;
     line-height: 16px;
+    cursor: default;
 }
