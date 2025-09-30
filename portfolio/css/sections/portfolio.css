@@ -2,3 +2,110 @@
     height: 914px;
     padding: 60px 0;
 }
+
+.portfolio-container {
+    padding: 0 20px;
+}
+
+.slider-container {
+    max-width: 100%;
+    height: 654px;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.slider-carousel {
+    width: 10000px;
+    height: 654px;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 20px;
+    cursor: ew-resize;
+}
+
+.portfolio-photo {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.portfolio-1 {
+    width: 400px;
+    height: 534px;
+    background-image: url("../../assets/img/webp/img-14.webp");
+    align-self: end;
+}
+
+.portfolio-2 {
+    width: 220px;
+    height: 220px;
+    background-image: url("../../assets/img/webp/img-21.webp");
+}
+
+.portfolio-3 {
+    width: 280px;
+    height: 374px;
+    background-image: url("../../assets/img/webp/img-22.webp");
+}
+
+.portfolio-4 {
+    width: 400px;
+    height: 534px;
+    background-image: url("../../assets/img/webp/img-20.webp");
+    align-self: start;
+}
+
+.portfolio-5 {
+    width: 280px;
+    height: 374px;
+    background-image: url("../../assets/img/webp/img-17.webp");
+}
+
+.portfolio-6 {
+    width: 220px;
+    height: 220px;
+    background-image: url("../../assets/img/webp/img-1.webp");
+}
+
+.portfolio-7 {
+    width: 280px;
+    height: 374px;
+    background-image: url("../../assets/img/webp/img-2.webp");
+    align-self: start;
+}
+
+.portfolio-8 {
+    width: 400px;
+    height: 534px;
+    background-image: url("../../assets/img/webp/img-5.webp");
+    align-self: end;
+}
+
+.portfolio-9 {
+    width: 220px;
+    height: 220px;
+    background-image: url("../../assets/img/webp/img-7.webp");
+}
+
+.portfolio-10 {
+    width: 280px;
+    height: 374px;
+    background-image: url("../../assets/img/webp/img-8.webp");
+    align-self: start;
+}
+
+.portfolio-11 {
+    width: 280px;
+    height: 374px;
+    background-image: url("../../assets/img/webp/img-9.webp");
+}
+
+.portfolio-12 {
+    width: 400px;
+    height: 534px;
+    background-image: url("../../assets/img/webp/img-12.webp");
+    align-self: start;
+}
