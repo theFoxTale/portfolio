@@ -141,15 +141,17 @@
     }
 }
 
-@media (max-width: 380px) {
-    .content-container {
-        max-width: 380px;
-    }
-
+@media (max-width: 560px) {
     .portfolio-navigation {
         height: 340px;
         display: flex;
         flex-direction: column;
         gap: 36px;
+    }
+}
+
+@media (max-width: 380px) {
+    .content-container {
+        max-width: 380px;
     }
 }
