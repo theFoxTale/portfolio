@@ -17,7 +17,7 @@
 .price-block {
     width: 320px;
     height: 500px;
-    padding: 24px;
+    padding: 23px 22px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -28,8 +28,19 @@
 .price-ul {
     padding: 0;
     margin: 0;
-    list-style-type: square;
-    list-style-position: inside;
+    list-style: none;
+}
+
+.price-ul li {
+    display: flex;
+    align-items: center;
+}
+
+.price-ul li::before {
+    margin-right: 6px;
+    content: url("../../assets/svg/price-square.svg");
+    display: inline-flex;
+    align-items: center;
 }
 
 .price-ul > li:not(:last-child) {
