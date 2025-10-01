@@ -148,6 +148,10 @@
         flex-direction: column;
         gap: 36px;
     }
+
+    .header-navigation-container {
+        display: none;
+    }
 }
 
 @media (max-width: 380px) {
