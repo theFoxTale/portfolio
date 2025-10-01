@@ -12,11 +12,42 @@
     max-width: 360px;
 }
 
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+}
+
 .slider-container {
     height: 674px;
     padding: 0 20px;
-    position: relative;
     overflow-x: scroll;
+}
+
+.cursor-zones-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 20px);
+    display: flex;
+}
+
+.zone-left {
+    width: 30%;
+    height: 100%;
+    cursor: url("/assets/img/png/left-arrow.png") 64 64, w-resize;
+}
+
+.zone-center {
+    width: 40%;
+    height: 100%;
+    cursor: default;
+}
+
+.zone-right {
+    width: 30%;
+    height: 100%;
+    cursor: url("/assets/img/png/right-arrow.png") 64 64, e-resize;
 }
 
 .slider-carousel {
@@ -26,7 +57,6 @@
     top: 0;
     left: 0;
     gap: 20px;
-    cursor: ew-resize;
 }
 
 .portfolio-photo {
