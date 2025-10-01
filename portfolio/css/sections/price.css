@@ -17,7 +17,7 @@
 .price-block {
     width: 320px;
     height: 500px;
-    padding: 23px 22px;
+    padding: 23px 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
