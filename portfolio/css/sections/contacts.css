@@ -20,6 +20,7 @@
 
 .text-input {
     min-width: 120px;
+    max-width: 380px;
     flex: 1 1 120px;
     height: 60px;
     padding: 0 12px;
@@ -51,32 +52,27 @@
 
 /* Тут не хватает места для всех элементов в одной строке */
 @media (max-width: 648px) {
-    .text-input:first-child {
-        flex-basis: 100%;
+    .text-input {
+        flex-basis: 240px;
     }
 }
 
-/* Тут не хватает места для второго инпута и кнопки */
-@media (max-width: 428px) {
-    .text-input:first-child {
-        max-width: 100%;
-    }
-
-    .text-input:nth-child(2) {
-        flex-basis: 100%;
-    }
-
+/*
+    Тут не хватает места для второго инпута и кнопки
+    Ширина кнопки = max-width инпута
+*/
+@media (max-width: 505px) {
     .contacts-button {
-        flex-basis: 100%;
+        flex-basis: 380px;
     }
 }
 
-@media (max-width: 380px) {
-    .inputs-container {
-        flex-direction: column;
-    }
-
+/*
+    Тут не хватает места для второго инпута и кнопки
+    Ширина кнопки = допустимой ширине
+*/
+@media (max-width: 420px) {
     .contacts-button {
-        width: 100%;
+        flex-basis: 100%;
     }
 }
