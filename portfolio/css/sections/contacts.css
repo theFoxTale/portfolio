@@ -11,15 +11,16 @@
 }
 
 .inputs-container {
+    display: flex;
+    flex-wrap: wrap;
     gap: 8px;
     width: 100%;
+    justify-content: center;
 }
 
 .text-input {
-    max-width: 380px;
-    width: 100%;
-    flex-grow: 1;
-    flex-shrink: 1;
+    min-width: 120px;
+    flex: 1 1 120px;
     height: 60px;
     padding: 0 12px;
     font-size: 16px;
@@ -39,8 +40,7 @@
 }
 
 .contacts-button {
-    width: 200px;
-    flex-shrink: 0;
+    flex: 0 0 200px;
 }
 
 @media (hover: hover) {
@@ -49,8 +49,26 @@
     }
 }
 
-@media (max-width: 768px) {
+/* Тут не хватает места для всех элементов в одной строке */
+@media (max-width: 648px) {
+    .text-input:first-child {
+        flex-basis: 100%;
+    }
+}
 
+/* Тут не хватает места для второго инпута и кнопки */
+@media (max-width: 428px) {
+    .text-input:first-child {
+        max-width: 100%;
+    }
+
+    .text-input:nth-child(2) {
+        flex-basis: 100%;
+    }
+
+    .contacts-button {
+        flex-basis: 100%;
+    }
 }
 
 @media (max-width: 380px) {
