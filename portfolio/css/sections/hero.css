@@ -64,6 +64,10 @@
     gap: 8px;
 }
 
+.down-link>span {
+    cursor: pointer;
+}
+
 .first-hero-image-background {
     width: clamp(150px, 15vw, 220px);
     margin: 0;
