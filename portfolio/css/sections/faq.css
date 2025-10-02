@@ -75,11 +75,17 @@
 }
 
 .answer-text {
-    margin-bottom: 20px;
+    overflow: hidden;
+    opacity: 0;
+    max-height: 0;
+    margin-bottom: 0;
+    transition: opacity 1s, max-height 1s, margin-bottom 1s;
 }
 
-.hidden-text {
-    display: none;
+.answer-text.active {
+    opacity: 1;
+    max-height: 500px;
+    margin-bottom: 20px;
 }
 
 @media (hover: hover) {
