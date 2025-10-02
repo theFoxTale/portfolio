@@ -1,6 +1,6 @@
 .portfolio-section {
     height: 100%;
-    padding: 60px 0 40px 0;
+    padding: 60px 0;
 }
 
 .portfolio-container {
@@ -18,9 +18,9 @@
 }
 
 .slider-container {
-    height: 674px;
+    height: 654px;
     padding: 0 20px;
-    overflow-x: scroll;
+    overflow-x: hidden;
 }
 
 .cursor-zones-container {
@@ -28,7 +28,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% - 20px);
+    height: 100%;
     display: flex;
 }
 
