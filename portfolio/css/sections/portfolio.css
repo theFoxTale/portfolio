@@ -53,10 +53,12 @@
 .slider-carousel {
     width: max-content;
     height: 654px;
+    gap: 20px;
+
     position: relative;
     top: 0;
-    left: 0;
-    gap: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .portfolio-photo {
