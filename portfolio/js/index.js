@@ -4,4 +4,5 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', handleWindowResize);
 
     addFaqButtonClicker();
+    openSelectedFaqQuestion();
 });
