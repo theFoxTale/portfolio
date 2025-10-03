@@ -100,15 +100,24 @@
 .menu-line {
     height: 2px;
     background-color: var(--portfolio-white);
-    transition: background-color 1s;
+    transition: background-color 1s, transform 1s ease;
 }
 
 .menu-upper-line {
     width: 12px;
 }
 
+.menu-upper-line.active {
+    width: 20px;
+    transform: rotate(45deg) translateY(6px);
+}
+
 .menu-lower-line {
     width: 20px;
+}
+
+.menu-lower-line.active {
+    transform: rotate(-45deg) translateY(-6px);
 }
 
 .burger-menu-container {
