@@ -111,6 +111,11 @@ select:-webkit-autofill:focus {
     white-space: nowrap;
 }
 
+.no-scroll {
+    overflow: hidden;
+    touch-action: none;
+}
+
 @media (max-width: 768px) {
     h1 {
         font-size: clamp(56px, 3.09278vw + 44.248px, 68px);

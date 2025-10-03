@@ -8,6 +8,8 @@ function toggleBurgerMenu() {
 
     const menuIconLines = document.querySelectorAll('.menu-line');
     menuIconLines.forEach(item => item.classList.toggle('active'));
+
+    document.body.classList.toggle('no-scroll');
 }
 
 function addMenuIconClicker() {
