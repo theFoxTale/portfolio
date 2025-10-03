@@ -1,8 +1,8 @@
-let isMobileMenuOpen = false;
+let resizeTimeout;
+let isBurgerMenuOpen = false;
 
 function toggleBurgerMenu() {
-    isMobileMenuOpen = !isMobileMenuOpen;
-
+    isBurgerMenuOpen = !isBurgerMenuOpen;
     const burgerMenu = document.querySelector('.burger-menu-container');
     burgerMenu.classList.toggle('active');
 
@@ -35,4 +35,13 @@ function addBurgerMenuClicker() {
             }, 500);
         }
     }));
+}
+
+function handleWindowResize() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        if (window.innerWidth > 768 && isBurgerMenuOpen) {
+            toggleBurgerMenu();
+        }
+    }, 150);
 }
