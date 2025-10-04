@@ -4,6 +4,7 @@
 
 html {
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;
 }
 
 body {
@@ -12,6 +13,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
+    scrollbar-gutter: stable;
 
     font-family: Oswald, sans-serif;
     font-weight: 400;

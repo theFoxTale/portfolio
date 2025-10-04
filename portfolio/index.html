@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="css/sections/faq.css">
     <link rel="stylesheet" href="css/sections/contacts.css">
 
+    <link rel="stylesheet" href="css/sections/pop-up.css">
+
     <title>Vera's Portfolio</title>
 </head>
 
@@ -213,7 +215,7 @@ than just an image.</pre>
 
                         <div class="flex-vertical">
                             <p class="text-mulish-italic">For short sessions and quick results</p>
-                            <div class="button-div">Book now</div>
+                            <div class="button-div book-now">Book now</div>
                         </div>
                     </div>
 
@@ -234,7 +236,7 @@ than just an image.</pre>
 
                         <div class="flex-vertical">
                             <p class="text-mulish-italic">Perfect for couples, portraits, or lifestyle</p>
-                            <div class="button-div">Book now</div>
+                            <div class="button-div book-now">Book now</div>
                         </div>
                     </div>
 
@@ -256,7 +258,7 @@ than just an image.</pre>
 
                         <div class="flex-vertical">
                             <p class="text-mulish-italic">For when you want to capture everything</p>
-                            <div class="button-div">Book now</div>
+                            <div class="button-div book-now">Book now</div>
                         </div>
                     </div>
 
@@ -278,7 +280,7 @@ than just an image.</pre>
 
                         <div class="flex-vertical">
                             <p class="text-mulish-italic">Full-day or partial wedding<br> coverage</p>
-                            <div class="button-div">Book now</div>
+                            <div class="button-div book-now">Book now</div>
                         </div>
                     </div>
                 </div>
@@ -381,12 +383,32 @@ than just an image.</pre>
             <div class="content-container contacts-container">
                 <h3>Like my portfolio? Sign up for a shoot!</h3>
                 <div class="flex-centered inputs-container">
-                    <input type="text" class="text-input" placeholder="your name">
-                    <input type="text" class="text-input" value="+1 ">
+                    <input type="text" class="text-input contacts-input" placeholder="your name">
+                    <input type="text" class="text-input contacts-input" value="+1 ">
                     <div class="button-div contacts-button">Book now</div>
                 </div>
             </div>
         </section>
+
+        <div class="pop-up">
+            <div class="pop-up-content">
+                <div class="pop-up-header">
+                    <div class="header-icon-container">
+                        <svg id="close-pop-up-button" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 6L6 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="pop-up-element">Like my portfolio? Sign up for a shoot!</h3>
+                </div>
+
+                <div class="flex-centered inputs-container">
+                    <input type="text" class="text-input pop-up-element" placeholder="your name">
+                    <input type="text" class="text-input pop-up-element" value="+1 ">
+                    <div class="button-div pop-up-element">Book now</div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="black-section">
@@ -403,8 +425,9 @@ than just an image.</pre>
         </div>
     </footer>
 
-    <script src="js/burger-menu.js" defer></script>
     <script src="./js/accordion.js" defer></script>
+    <script src="./js/burger-menu.js" defer></script>
+    <script src="./js/pop-up.js" defer></script>
     <script src="./js/index.js" defer></script>
 </body>
 </html>

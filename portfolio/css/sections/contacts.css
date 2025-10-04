@@ -19,9 +19,6 @@
 }
 
 .text-input {
-    min-width: 120px;
-    max-width: 380px;
-    flex: 1 1 120px;
     height: 60px;
     padding: 0 12px;
 
@@ -45,6 +42,12 @@
     text-transform: uppercase;
 }
 
+.contacts-input {
+    min-width: 120px;
+    max-width: 380px;
+    flex: 1 1 120px;
+}
+
 .contacts-button {
     flex: 0 0 200px;
 }
@@ -57,7 +60,7 @@
 
 /* Тут не хватает места для всех элементов в одной строке */
 @media (max-width: 648px) {
-    .text-input {
+    .contacts-input {
         flex-basis: 240px;
     }
 }
