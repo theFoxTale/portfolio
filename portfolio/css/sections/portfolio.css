@@ -35,7 +35,7 @@
 .zone-left {
     width: 30%;
     height: 100%;
-    cursor: url("/assets/img/png/left-arrow.png") 64 64, w-resize;
+    cursor: url("../../assets/img/png/left-arrow.png") 64 64, w-resize;
 }
 
 .zone-center {
@@ -47,7 +47,7 @@
 .zone-right {
     width: 30%;
     height: 100%;
-    cursor: url("/assets/img/png/right-arrow.png") 64 64, e-resize;
+    cursor: url("../../assets/img/png/right-arrow.png") 64 64, e-resize;
 }
 
 .slider-carousel {
