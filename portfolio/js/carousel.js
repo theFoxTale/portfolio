@@ -22,8 +22,8 @@ function stopScroll() {
 
 /* Сдвиг карусели */
 function shiftCarousel(step, direction) {
-    const maxScroll = 0.5 * (portfolioCarousel.scrollWidth - portfolioWrapper.clientWidth);
-    const resultShift = (Math.abs(carouselShift + step) <= maxScroll) ? carouselShift + step : direction * maxScroll;
+    const maxShift = 0.5 * (portfolioCarousel.scrollWidth - portfolioWrapper.clientWidth);
+    const resultShift = (Math.abs(carouselShift + step) <= maxShift) ? carouselShift + step : direction * maxShift;
 
     portfolioCarousel.style.transform = `translateX(calc(-50% - ${resultShift}px))`;
 
