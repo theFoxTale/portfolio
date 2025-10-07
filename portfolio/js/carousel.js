@@ -1,15 +1,18 @@
 let scrollInterval;
-let fullStep = 0;
-let portfolioCarousel;
+let carouselShift = 0;
 
+let portfolioCarousel, portfolioWrapper;
+
+let touchIsActive = false;
+let touchStartPosition = 0;
+let touchShift = 0;
+
+/* Перемещение мышкой */
 function startScroll(direction) {
-    const portfolioWrapper = document.querySelector('.slider-wrapper');
-    const maxScroll = 0.5 * (portfolioCarousel.scrollWidth - portfolioWrapper.clientWidth);
+    if (touchIsActive) return;
 
-    const step = direction * 10;
     scrollInterval = setInterval(() => {
-        fullStep = (Math.abs(fullStep + step) <= maxScroll) ? fullStep + step : direction * maxScroll;
-        portfolioCarousel.style.transform = `translateX(calc(-50% - ${fullStep}px))`;
+        carouselShift = shiftCarousel(direction * 10, direction);
     }, 1);
 }
 
@@ -17,9 +20,44 @@ function stopScroll() {
     clearInterval(scrollInterval);
 }
 
-function addCarouselMouseEvents() {
-    portfolioCarousel = document.querySelector('.slider-carousel');
+/* Сдвиг карусели */
+function shiftCarousel(step, direction) {
+    const maxScroll = 0.5 * (portfolioCarousel.scrollWidth - portfolioWrapper.clientWidth);
+    const resultShift = (Math.abs(carouselShift + step) <= maxScroll) ? carouselShift + step : direction * maxScroll;
 
+    portfolioCarousel.style.transform = `translateX(calc(-50% - ${resultShift}px))`;
+
+    return resultShift;
+}
+
+/* Перемещение пальцем */
+function touchStart(event) {
+    touchIsActive = true;
+    touchStartPosition = event.clientX;
+}
+
+function touchMove(event) {
+    if (!touchIsActive) return;
+
+    const xDifference = touchStartPosition - event.clientX;
+    const direction = (xDifference > 0) ? 1 : -1;
+
+    touchShift = shiftCarousel(xDifference, direction);
+}
+
+function touchEnd() {
+    touchIsActive = false;
+    carouselShift = touchShift;
+    touchShift = 0;
+}
+
+/* Подключение событий */
+function initCarouselElements() {
+    portfolioCarousel = document.querySelector('.slider-carousel');
+    portfolioWrapper = document.querySelector('.slider-wrapper');
+}
+
+function addCarouselMouseEvents() {
     const leftDiv = document.querySelector('.zone-left');
     leftDiv.addEventListener('mouseenter', () => startScroll(-1))
     leftDiv.addEventListener('mouseleave', stopScroll);
@@ -27,4 +65,10 @@ function addCarouselMouseEvents() {
     const rightDiv = document.querySelector('.zone-right');
     rightDiv.addEventListener('mouseenter', () => startScroll(1))
     rightDiv.addEventListener('mouseleave', stopScroll);
+}
+
+function addCarouselTouchEvents() {
+    portfolioWrapper.addEventListener('touchstart', event => touchStart(event.touches[0]));
+    portfolioWrapper.addEventListener('touchmove', event => touchMove(event.touches[0]));
+    portfolioWrapper.addEventListener('touchend', touchEnd);
 }
