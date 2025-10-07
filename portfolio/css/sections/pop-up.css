@@ -1,5 +1,5 @@
 .pop-up {
-    width: 100%;
+    width: 100vh;
     height: 100%;
     background-color: rgba(34, 34, 34, 0.6);
     position: fixed;

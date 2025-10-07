@@ -136,7 +136,7 @@
     position: absolute;
     opacity: 0;
     top: 60px;
-    bottom: 0;
+    height: calc(100vh - 60px);
     left: 0;
     width: 100%;
     transform: translateX(100%);
