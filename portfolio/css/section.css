@@ -133,7 +133,7 @@
 }
 
 .burger-menu-container {
-    position: absolute;
+    position: fixed;
     opacity: 0;
     top: 60px;
     height: calc(100vh - 60px);

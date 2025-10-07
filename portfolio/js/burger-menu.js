@@ -3,6 +3,7 @@ let isBurgerMenuOpen = false;
 
 function toggleBurgerMenu() {
     isBurgerMenuOpen = !isBurgerMenuOpen;
+
     const burgerMenu = document.querySelector('.burger-menu-container');
     burgerMenu.classList.toggle('active');
 
