@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     addBurgerMenuClicker();
     window.addEventListener('resize', handleWindowResize);
 
+    addCarouselMouseEvents();
+
     addBookingButtonsClicker();
 
     addFaqButtonClicker();
