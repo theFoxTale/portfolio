@@ -91,6 +91,11 @@
                 color 1s;
 }
 
+.button-div.disabled {
+    background-color: var(--portfolio-grey);
+    cursor: default;
+}
+
 .menu-logo-container {
     transition: opacity 1s;
     opacity: 0;
@@ -156,7 +161,7 @@
         color: var(--portfolio-red);
     }
 
-    .button-div:hover {
+    .button-div:hover:not(.disabled) {
         background-color: var(--portfolio-red);
         color: var(--portfolio-black);
     }

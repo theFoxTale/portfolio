@@ -52,7 +52,7 @@
         border-color: var(--portfolio-red);
     }
 
-    .price-block:hover .button-div {
+    .price-block:hover .button-div:not(.disabled) {
         background-color: var(--portfolio-red);
         color: var(--portfolio-black);
     }

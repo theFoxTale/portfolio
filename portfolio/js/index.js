@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     addCarouselMouseEvents();
     addCarouselTouchEvents();
 
+    initPopUpElements();
     addBookingButtonsClicker();
+    popUpValidationClicker();
 
     addFaqButtonClicker();
     openSelectedFaqQuestion();

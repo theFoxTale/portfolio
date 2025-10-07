@@ -42,13 +42,13 @@
     width: 380px;
 }
 
-.header-icon-container {
+.pop-up-icon-container {
     cursor: pointer;
     transition: color 1s;
 }
 
 @media (hover: hover) {
-    .header-icon-container:hover {
+    .pop-up-icon-container:hover {
         color: var(--portfolio-red);
     }
 }
