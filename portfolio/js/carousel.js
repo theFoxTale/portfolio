@@ -13,7 +13,7 @@ function startScroll(direction) {
 
     scrollInterval = setInterval(() => {
         carouselShift = shiftCarousel(direction * 10, direction);
-    }, 1);
+    }, 10);
 }
 
 function stopScroll() {
