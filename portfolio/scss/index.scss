@@ -1,0 +1,14 @@
+// основные блоки стилей
+@use 'main';
+@use 'fonts';
+@use 'colors';
+@use 'section';
+
+// стили для отдельных секций
+@use 'sections/hero';
+@use 'sections/about';
+@use 'sections/portfolio';
+@use 'sections/price';
+@use 'sections/faq';
+@use 'sections/contacts';
+@use 'sections/pop-up';
