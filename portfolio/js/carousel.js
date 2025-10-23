@@ -34,6 +34,7 @@ function shiftCarousel(step, direction) {
 function touchStart(event) {
     touchIsActive = true;
     touchStartPosition = event.clientX;
+    document.body.classList.toggle('no-scroll');
 }
 
 function touchMove(event) {
@@ -49,6 +50,7 @@ function touchEnd() {
     touchIsActive = false;
     carouselShift = touchShift;
     touchShift = 0;
+    document.body.classList.toggle('no-scroll');
 }
 
 /* Подключение событий */
