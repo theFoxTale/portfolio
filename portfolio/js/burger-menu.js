@@ -46,3 +46,9 @@ function handleWindowResize() {
         }
     }, 150);
 }
+
+export default function initBurgerMenu() {
+    addMenuIconClicker();
+    addBurgerMenuClicker();
+    window.addEventListener('resize', handleWindowResize);
+}

@@ -74,3 +74,9 @@ function addCarouselTouchEvents() {
     portfolioWrapper.addEventListener('touchmove', event => touchMove(event.touches[0]));
     portfolioWrapper.addEventListener('touchend', touchEnd);
 }
+
+export default function initCarousel() {
+    initCarouselElements();
+    addCarouselMouseEvents();
+    addCarouselTouchEvents();
+}

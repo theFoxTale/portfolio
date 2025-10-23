@@ -1,16 +1,11 @@
+import initAccordion from "./accordion.js";
+import initBurgerMenu from "./burger-menu.js";
+import initCarousel from "./carousel.js";
+import initPopUp from "./pop-up.js";
+
 document.addEventListener('DOMContentLoaded', () => {
-    addMenuIconClicker();
-    addBurgerMenuClicker();
-    window.addEventListener('resize', handleWindowResize);
-
-    initCarouselElements();
-    addCarouselMouseEvents();
-    addCarouselTouchEvents();
-
-    initPopUpElements();
-    addBookingButtonsClicker();
-    popUpValidationClicker();
-
-    addFaqButtonClicker();
-    openSelectedFaqQuestion();
+    initBurgerMenu();
+    initCarousel();
+    initPopUp();
+    initAccordion();
 });

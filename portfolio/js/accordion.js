@@ -30,3 +30,8 @@ function openSelectedFaqQuestion() {
     const selectedItem = localStorage.getItem(accordionStorageKey) ?? '0';
     document.querySelectorAll('.question-header')[selectedItem].click();
 }
+
+export default function initAccordion() {
+    addFaqButtonClicker();
+    openSelectedFaqQuestion();
+}

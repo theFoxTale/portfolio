@@ -89,3 +89,9 @@ function popUpValidationClicker() {
         checkPopUpButton();
     });
 }
+
+export default function initPopUp() {
+    initPopUpElements();
+    addBookingButtonsClicker();
+    popUpValidationClicker();
+};
