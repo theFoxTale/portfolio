@@ -15,7 +15,7 @@
     transform: rotate(180deg);
     gap: 12px;
     flex-shrink: 0;
-    transition: opacity 3s;
+    transition: opacity 2s;
     opacity: 1;
 }
 
@@ -72,7 +72,7 @@
     width: clamp(150px, 15vw, 220px);
     margin: 0;
     opacity: 1;
-    transition: opacity 3s;
+    transition: opacity 2s;
     align-self: center;
     flex-shrink: 0;
     display: flex;
