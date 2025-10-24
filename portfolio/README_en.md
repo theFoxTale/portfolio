@@ -6,10 +6,11 @@ This is my homework for [RS School](https://rs.school/), JS / Front-end Course 2
 1. **Task**: [text](https://github.com/rolling-scopes-school/tasks/blob/master/stage1/tasks/portfolio/portfolio-part-1.md) + [design](https://www.figma.com/design/iFsApEUsf6tPwXas56gOiT/Portfolio?node-id=26-1637&t=L9uya9x6r8IlKFzP-0)
 2. **Deploy** (you may see how site works): [link](https://rolling-scopes-school.github.io/thefoxtale-JSFE2025Q3/portfolio/)
 
-<details>
-<summary>Screenshots</summary>
-
 ![Main](assets/screenshots/main.jpg)
+
+<details>
+<summary>Additional screenshots</summary>
+
 ![Medium](assets/screenshots/medium.jpg)
 ![Small](assets/screenshots/small.jpg)
 </details>
