@@ -4,7 +4,7 @@
 Это моя домашняя работа для [RS School](https://rs.school/), JS / Front-end Course 2025 Q3
 
 1. **Задание**: [текст](https://github.com/rolling-scopes-school/tasks/blob/master/stage1/tasks/portfolio/portfolio-part-1.md) + [дизайн](https://www.figma.com/design/iFsApEUsf6tPwXas56gOiT/Portfolio?node-id=26-1637&t=L9uya9x6r8IlKFzP-0)
-2. **Деплой** (можно посмотреть как работает сайт): [ссылка](https://rolling-scopes-school.github.io/thefoxtale-JSFE2025Q3/portfolio/)
+2. **Деплой** (можно посмотреть как работает сайт): [ссылка](https://thefoxtale.github.io/portfolio/)
 
 ![Главная](assets/screenshots/main.jpg)
 
