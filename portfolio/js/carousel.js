@@ -51,13 +51,17 @@ function touchMove(event) {
             if (absMove < 150) xDifference = direction * 150;
             touchShift = shiftCarousel(xDifference, direction);
         }
+    } else {
+        touchIsActive = false;
     }
 }
 
 function touchEnd() {
+    if (touchIsActive) {
+        carouselShift = touchShift;
+        touchShift = 0;
+    }
     touchIsActive = false;
-    carouselShift = touchShift;
-    touchShift = 0;
 }
 
 /* Подключение событий */
