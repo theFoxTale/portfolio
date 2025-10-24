@@ -4,7 +4,7 @@ let carouselShift = 0;
 let portfolioCarousel, portfolioWrapper;
 
 let touchIsActive = false;
-let touchStartPosition = 0;
+let touchStartPosition = { x: 0, y: 0 };
 let touchShift = 0;
 
 /* Перемещение мышкой */
@@ -31,22 +31,26 @@ function shiftCarousel(step, direction) {
 }
 
 /* Перемещение пальцем */
-function touchStart(event) {
+function touchStart(touch) {
     touchIsActive = true;
-    touchStartPosition = event.clientX;
+    touchStartPosition.x = touch.clientX;
+    touchStartPosition.y = touch.clientY;
 }
 
 function touchMove(event) {
     if (!touchIsActive) return;
-    event.preventDefault();
 
-    let xDifference = touchStartPosition - event.touches[0].clientX;
+    let yDifference = Math.abs(touchStartPosition.y - event.touches[0].clientY);
+    let xDifference = touchStartPosition.x - event.touches[0].clientX;
     const direction = (xDifference > 0) ? 1 : -1;
 
     const absMove = Math.abs(xDifference);
-    if (absMove > 20) {
-        if (absMove < 150) xDifference = direction * 150;
-        touchShift = shiftCarousel(xDifference, direction);
+    if (absMove > yDifference) {
+        event.preventDefault();
+        if (absMove > 20) {
+            if (absMove < 150) xDifference = direction * 150;
+            touchShift = shiftCarousel(xDifference, direction);
+        }
     }
 }
 
