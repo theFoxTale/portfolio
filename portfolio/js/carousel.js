@@ -34,23 +34,25 @@ function shiftCarousel(step, direction) {
 function touchStart(event) {
     touchIsActive = true;
     touchStartPosition = event.clientX;
-    document.body.classList.toggle('no-scroll');
 }
 
 function touchMove(event) {
     if (!touchIsActive) return;
 
-    const xDifference = touchStartPosition - event.clientX;
+    let xDifference = touchStartPosition - event.clientX;
     const direction = (xDifference > 0) ? 1 : -1;
 
-    touchShift = shiftCarousel(xDifference, direction);
+    const absMove = Math.abs(xDifference);
+    if (absMove > 20) {
+        if (absMove < 150) xDifference = direction * 150;
+        touchShift = shiftCarousel(xDifference, direction);
+    }
 }
 
 function touchEnd() {
     touchIsActive = false;
     carouselShift = touchShift;
     touchShift = 0;
-    document.body.classList.toggle('no-scroll');
 }
 
 /* Подключение событий */
