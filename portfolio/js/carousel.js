@@ -38,8 +38,9 @@ function touchStart(event) {
 
 function touchMove(event) {
     if (!touchIsActive) return;
+    event.preventDefault();
 
-    let xDifference = touchStartPosition - event.clientX;
+    let xDifference = touchStartPosition - event.touches[0].clientX;
     const direction = (xDifference > 0) ? 1 : -1;
 
     const absMove = Math.abs(xDifference);
@@ -73,7 +74,7 @@ function addCarouselMouseEvents() {
 
 function addCarouselTouchEvents() {
     portfolioWrapper.addEventListener('touchstart', event => touchStart(event.touches[0]));
-    portfolioWrapper.addEventListener('touchmove', event => touchMove(event.touches[0]));
+    portfolioWrapper.addEventListener('touchmove', event => touchMove(event));
     portfolioWrapper.addEventListener('touchend', touchEnd);
 }
 
