@@ -1,4 +1,4 @@
-**Read in:** [English](README_en.md) | [Русский](README.md)
+**Язык:** [English](README_en.md) | [Русский](README.md)
 
 ## Photographer's portfolio
 This is my homework for [RS School](https://rs.school/), JS / Front-end Course 2025 Q3
