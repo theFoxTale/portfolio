@@ -1,0 +1,86 @@
+.contacts-section {
+    margin: 42px 0 20px 0;
+}
+
+.contacts-container {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.inputs-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+}
+
+.text-input {
+    height: 60px;
+    padding: 0 12px;
+
+    font-family: Oswald, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+
+    border: 1px solid var(--portfolio-black);
+    transition: border-color 1s;
+}
+
+.text-input::placeholder {
+    color: var(--portfolio-grey);
+    font-family: Oswald, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.contacts-input {
+    min-width: 120px;
+    max-width: 380px;
+    flex: 1 1 120px;
+}
+
+.contacts-button {
+    flex: 0 0 200px;
+}
+
+@media (hover: hover) {
+    .text-input:hover {
+        border-color: var(--portfolio-red);
+    }
+}
+
+/* Тут не хватает места для всех элементов в одной строке */
+@media (max-width: 648px) {
+    .contacts-input {
+        flex-basis: 240px;
+    }
+}
+
+/*
+    Тут не хватает места для второго инпута и кнопки
+    Ширина кнопки = max-width инпута
+*/
+@media (max-width: 505px) {
+    .contacts-button {
+        flex-basis: 380px;
+    }
+}
+
+/*
+    Тут не хватает места для второго инпута и кнопки
+    Ширина кнопки = допустимой ширине
+*/
+@media (max-width: 420px) {
+    .contacts-button {
+        flex-basis: 100%;
+    }
+}

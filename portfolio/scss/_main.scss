@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+
+    font-family: Oswald, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+p {
+    cursor: default;
+    margin: 0;
+}
+
+span {
+    cursor: default;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: clamp(68px, 7.142857vw + 13.143px, 116px);
+    line-height: clamp(80px, 7.738vw + 20.573px, 132px);
+    text-transform: uppercase;
+    cursor: default;
+    margin: 40px 0;
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 40px;
+    text-transform: uppercase;
+    cursor: default;
+    margin: 0;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 20px;
+    line-height: 28px;
+    text-transform: uppercase;
+    cursor: default;
+    margin: 0;
+    font-weight: normal;
+}
+
+h4 {
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    cursor: default;
+    margin: 0;
+    font-weight: normal;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* Автозаполнение формы */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+.text-mulish-400 {
+    font-family: Mulish, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: default;
+}
+
+.text-mulish-500 {
+    font-family: Mulish, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 16px;
+    cursor: default;
+}
+
+.text-mulish-italic {
+    font-family: Mulish, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    cursor: default;
+    font-style: italic;
+}
+
+.no-wrap-text {
+    white-space: nowrap;
+}
+
+.no-scroll {
+    overflow: hidden;
+    touch-action: none;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: clamp(56px, 3.09278vw + 44.248px, 68px);
+        line-height: clamp(64px, 4.1237vw + 48.33px, 80px);
+    }
+}

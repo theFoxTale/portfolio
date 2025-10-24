@@ -1,0 +1,50 @@
+.about-section {
+    height: 100%;
+    padding: 60px 0;
+}
+
+.about-container {
+    gap: 40px;
+    align-items: start;
+    padding: 0 20px;
+}
+
+.about-block-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.about-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.about-photo-first {
+    background-image: url("../assets/img/webp/img-photographer-1.webp");
+}
+
+.about-photo-second {
+    background-image: url("../assets/img/webp/img-photographer-2.webp");
+}
+
+.about-photo-third {
+    background-image: url("../assets/img/webp/img-photographer-3.webp");
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+    }
+
+    .about-photo-third {
+        opacity: 0;
+        display: none;
+    }
+}
