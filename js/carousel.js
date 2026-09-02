@@ -1,4 +1,4 @@
-let scrollInterval;
+let scrollFrameId;
 let carouselShift = 0;
 
 let portfolioCarousel, portfolioWrapper;
@@ -11,13 +11,19 @@ let touchShift = 0;
 function startScroll(direction) {
     if (touchIsActive) return;
 
-    scrollInterval = setInterval(() => {
+    stopScroll();
+
+    function tick() {
         carouselShift = shiftCarousel(direction * 10, direction);
-    }, 10);
+        scrollFrameId = requestAnimationFrame(tick);
+    }
+
+    scrollFrameId = requestAnimationFrame(tick);
 }
 
 function stopScroll() {
-    clearInterval(scrollInterval);
+    cancelAnimationFrame(scrollFrameId);
+    scrollFrameId = null;
 }
 
 /* Сдвиг карусели */
