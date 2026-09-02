@@ -250,6 +250,7 @@ select:-webkit-autofill:focus {
 .button-div.disabled {
   background-color: var(--portfolio-grey);
   cursor: default;
+  pointer-events: none;
 }
 
 .menu-logo-container {

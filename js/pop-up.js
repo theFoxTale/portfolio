@@ -1,5 +1,4 @@
-let isNameOk = false;
-let isPhoneOk = false;
+import { bindBookingFields } from "./form-validation.js";
 
 let popUpWindow, popUpName, popUpPhone, popUpButton;
 
@@ -10,17 +9,19 @@ function initPopUpElements() {
     popUpButton = document.querySelector('.button-div.pop-up-element');
 }
 
-function togglePopUp() {
-    popUpWindow.classList.toggle('active');
-    document.body.classList.toggle('no-scroll');
+function closePopUp() {
+    popUpWindow.classList.remove('active');
+    document.body.classList.remove('no-scroll');
 }
 
 function openPopUp() {
     popUpName.value = '';
-    popUpPhone.value = '+1';
-    popUpButton.classList.add('disabled');
+    popUpPhone.value = '+1 ';
+    popUpName.dispatchEvent(new Event('input'));
+    popUpPhone.dispatchEvent(new Event('input'));
 
-    togglePopUp();
+    popUpWindow.classList.add('active');
+    document.body.classList.add('no-scroll');
 
     setTimeout(function () {
         popUpName.focus();
@@ -28,7 +29,7 @@ function openPopUp() {
 }
 
 function addBookingButtonsClicker() {
-    /* Открытие */
+    /* Открытие с карточек тарифов */
     document.querySelectorAll('.book-now').forEach(item => {
         item.addEventListener('click', openPopUp);
     });
@@ -36,62 +37,21 @@ function addBookingButtonsClicker() {
     /* Закрыть при клике по фону */
     popUpWindow.addEventListener('click', (event) => {
         if (event.target.classList.contains('pop-up')) {
-            togglePopUp();
+            closePopUp();
         }
     });
 
     /* Закрыть при клике по крестику */
-    document.getElementById('close-pop-up-button').addEventListener('click', togglePopUp);
-
-    /* Закрыть при нажатии кнопки booking */
-    popUpButton.addEventListener('click', togglePopUp);
-}
-
-function checkPopUpButton() {
-    (isNameOk && isPhoneOk) ? popUpButton.classList.remove('disabled') : popUpButton.classList.add('disabled');
-}
-
-function popUpValidationClicker() {
-    popUpName.addEventListener('input', function() {
-        this.value = this.value.replace(/[^a-zA-Zа-яА-ЯёЁ]/g, '');
-        isNameOk  = this.value && this.value.length >= 3;
-        checkPopUpButton()
-    });
-
-    popUpPhone.addEventListener('input', function(e) {
-        let value = e.target.value.replace(/[^\d+]/g, '');
-
-        if (!value.startsWith('+1')) {
-            value = '+1' + value.replace(/^\+?1?/, '');
-        }
-
-        if (value.length > 2) {
-            const numbers = value.substring(2).replace(/\D/g, '');
-            let formatted = '+1 ';
-
-            if (numbers.length > 0) {
-                formatted += '(' + numbers.substring(0, 3);
-            }
-            if (numbers.length > 3) {
-                formatted += ') ' + numbers.substring(3, 6);
-            }
-            if (numbers.length > 6) {
-                formatted += '-' + numbers.substring(6, 10);
-            }
-
-            value = formatted;
-        }
-
-        e.target.value = value;
-
-        const phonePattern = /^\+1\s\([0-9]{3}\)\s[0-9]{3}-[0-9]{4}$/;
-        isPhoneOk = phonePattern.test(value);
-        checkPopUpButton();
-    });
+    document.getElementById('close-pop-up-button').addEventListener('click', closePopUp);
 }
 
 export default function initPopUp() {
     initPopUpElements();
     addBookingButtonsClicker();
-    popUpValidationClicker();
+    bindBookingFields({
+        nameInput: popUpName,
+        phoneInput: popUpPhone,
+        submitButton: popUpButton,
+        onValidSubmit: closePopUp,
+    });
 };
