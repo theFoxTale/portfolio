@@ -1,6 +1,7 @@
 import { bindBookingFields } from "./form-validation.js";
 
 let popUpWindow, popUpName, popUpPhone, popUpButton;
+let resetPopUpFields;
 
 function initPopUpElements() {
     popUpWindow = document.querySelector('.pop-up');
@@ -15,10 +16,7 @@ function closePopUp() {
 }
 
 function openPopUp() {
-    popUpName.value = '';
-    popUpPhone.value = '+1 ';
-    popUpName.dispatchEvent(new Event('input'));
-    popUpPhone.dispatchEvent(new Event('input'));
+    resetPopUpFields();
 
     popUpWindow.classList.add('active');
     document.body.classList.add('no-scroll');
@@ -48,10 +46,10 @@ function addBookingButtonsClicker() {
 export default function initPopUp() {
     initPopUpElements();
     addBookingButtonsClicker();
-    bindBookingFields({
+    resetPopUpFields = bindBookingFields({
         nameInput: popUpName,
         phoneInput: popUpPhone,
         submitButton: popUpButton,
         onValidSubmit: closePopUp,
-    });
+    }).reset;
 };

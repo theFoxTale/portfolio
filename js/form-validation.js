@@ -47,6 +47,14 @@ export function bindBookingFields({ nameInput, phoneInput, submitButton, onValid
             : submitButton.classList.add('disabled');
     }
 
+    function reset(name = '', phone = '+1 ') {
+        nameInput.value = name;
+        phoneInput.value = phone;
+        isNameOk = isNameValid(sanitizeName(name));
+        isPhoneOk = isPhoneValid(phone);
+        updateSubmitButton();
+    }
+
     nameInput.addEventListener('input', function() {
         this.value = sanitizeName(this.value);
         isNameOk = isNameValid(this.value);
@@ -68,4 +76,6 @@ export function bindBookingFields({ nameInput, phoneInput, submitButton, onValid
     });
 
     updateSubmitButton();
+
+    return { reset };
 }
