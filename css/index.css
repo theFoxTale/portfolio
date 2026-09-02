@@ -128,24 +128,35 @@ select:-webkit-autofill:focus {
   font-family: "Mulish";
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
   src: url("../assets/fonts/Mulish/Mulish-Regular.woff2") format("woff2"), url("../assets/fonts/Mulish/Mulish-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Mulish";
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url("../assets/fonts/Mulish/Mulish-Italic.woff2") format("woff2");
 }
 @font-face {
   font-family: "Mulish";
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
   src: url("../assets/fonts/Mulish/Mulish-Medium.woff2") format("woff2"), url("../assets/fonts/Mulish/Mulish-Medium.woff") format("woff");
 }
 @font-face {
   font-family: "Oswald";
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
   src: url("../assets/fonts/Oswald/Oswald-Light.woff2") format("woff2"), url("../assets/fonts/Oswald/Oswald-Light.woff") format("woff");
 }
 @font-face {
   font-family: "Oswald";
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
   src: url("../assets/fonts/Oswald/Oswald-Regular.woff2") format("woff2"), url("../assets/fonts/Oswald/Oswald-Regular.woff") format("woff");
 }
 :root {
@@ -191,6 +202,12 @@ select:-webkit-autofill:focus {
   justify-content: center;
   align-items: center;
   align-self: end;
+}
+
+.header-icon-container img {
+  display: block;
+  width: 19px;
+  height: 17px;
 }
 
 .header-navigation-container {
@@ -435,10 +452,9 @@ select:-webkit-autofill:focus {
 .first-hero-image {
   width: 100%;
   aspect-ratio: 1/1;
-  background-image: url("../assets/img/webp/img-10.webp");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  display: block;
+  object-fit: cover;
+  object-position: center;
 }
 
 .second-hero-image-background {
@@ -453,10 +469,9 @@ select:-webkit-autofill:focus {
 .second-hero-image {
   width: 100%;
   aspect-ratio: 1/1.34;
-  background-image: url("../assets/img/webp/img-11.webp");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  display: block;
+  object-fit: contain;
+  object-position: center;
 }
 
 .presentation-text {
@@ -528,21 +543,12 @@ select:-webkit-autofill:focus {
 .about-photo {
   width: 100%;
   aspect-ratio: 1/1;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.about-photo-first {
-  background-image: url("../assets/img/webp/img-photographer-1.webp");
-}
-
-.about-photo-second {
-  background-image: url("../assets/img/webp/img-photographer-2.webp");
+  display: block;
+  object-fit: cover;
+  object-position: center;
 }
 
 .about-photo-third {
-  background-image: url("../assets/img/webp/img-photographer-3.webp");
   opacity: 1;
   transition: opacity 1s;
 }
@@ -616,35 +622,32 @@ select:-webkit-autofill:focus {
 }
 
 .portfolio-photo {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  display: block;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
 }
 
 .portfolio-1 {
   width: 400px;
   height: 534px;
-  background-image: url("../assets/img/webp/img-14.webp");
   align-self: end;
 }
 
 .portfolio-2 {
   width: 220px;
   height: 220px;
-  background-image: url("../assets/img/webp/img-21.webp");
 }
 
 .portfolio-3 {
   width: 280px;
   height: 374px;
   margin-bottom: 35px;
-  background-image: url("../assets/img/webp/img-22.webp");
 }
 
 .portfolio-4 {
   width: 400px;
   height: 534px;
-  background-image: url("../assets/img/webp/img-20.webp");
   align-self: start;
 }
 
@@ -652,39 +655,33 @@ select:-webkit-autofill:focus {
   width: 280px;
   height: 374px;
   margin-bottom: 40px;
-  background-image: url("../assets/img/webp/img-17.webp");
 }
 
 .portfolio-6 {
   width: 220px;
   height: 220px;
-  background-image: url("../assets/img/webp/img-1.webp");
 }
 
 .portfolio-7 {
   width: 280px;
   height: 374px;
-  background-image: url("../assets/img/webp/img-2.webp");
   align-self: start;
 }
 
 .portfolio-8 {
   width: 400px;
   height: 534px;
-  background-image: url("../assets/img/webp/img-5.webp");
   align-self: end;
 }
 
 .portfolio-9 {
   width: 220px;
   height: 220px;
-  background-image: url("../assets/img/webp/img-7.webp");
 }
 
 .portfolio-10 {
   width: 280px;
   height: 374px;
-  background-image: url("../assets/img/webp/img-8.webp");
   align-self: start;
 }
 
@@ -692,13 +689,11 @@ select:-webkit-autofill:focus {
   width: 280px;
   height: 374px;
   margin-bottom: 40px;
-  background-image: url("../assets/img/webp/img-9.webp");
 }
 
 .portfolio-12 {
   width: 400px;
   height: 534px;
-  background-image: url("../assets/img/webp/img-12.webp");
   align-self: start;
 }
 

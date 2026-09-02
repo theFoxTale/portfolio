@@ -19,21 +19,12 @@
 .about-photo {
     width: 100%;
     aspect-ratio: 1 / 1;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-.about-photo-first {
-    background-image: url("../assets/img/webp/img-photographer-1.webp");
-}
-
-.about-photo-second {
-    background-image: url("../assets/img/webp/img-photographer-2.webp");
+    display: block;
+    object-fit: cover;
+    object-position: center;
 }
 
 .about-photo-third {
-    background-image: url("../assets/img/webp/img-photographer-3.webp");
     opacity: 1;
     transition: opacity 1s;
 }

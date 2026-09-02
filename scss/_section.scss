@@ -36,6 +36,12 @@
     align-self: end;
 }
 
+.header-icon-container img {
+    display: block;
+    width: 19px;
+    height: 17px;
+}
+
 .header-navigation-container {
     padding-right: 20px;
     transition: opacity 1s;
