@@ -1,17 +1,45 @@
-let resizeTimeout;
+const burgerBreakpoint = window.matchMedia('(max-width: 768px)');
+
 let isBurgerMenuOpen = false;
 let burgerMenu;
 let menuIcon;
 
-function toggleBurgerMenu() {
-    isBurgerMenuOpen = !isBurgerMenuOpen;
+function syncBurgerA11y() {
+    menuIcon.setAttribute('aria-expanded', String(isBurgerMenuOpen));
+    menuIcon.setAttribute('aria-label', isBurgerMenuOpen ? 'Close menu' : 'Open menu');
+}
 
-    burgerMenu.classList.toggle('active');
+function isBookingDialogOpen() {
+    const dialog = document.querySelector('.pop-up');
+    return Boolean(dialog?.open);
+}
+
+function setBurgerMenuOpen(open, { animate = true } = {}) {
+    if (isBurgerMenuOpen === open) {
+        return;
+    }
+
+    const shouldAnimate = animate && burgerBreakpoint.matches;
+
+    if (shouldAnimate) {
+        burgerMenu.classList.add('is-animating');
+        burgerMenu.offsetWidth;
+    } else {
+        burgerMenu.classList.remove('is-animating');
+    }
+
+    isBurgerMenuOpen = open;
+    burgerMenu.classList.toggle('active', open);
 
     const menuIconLines = document.querySelectorAll('.menu-line');
-    menuIconLines.forEach(item => item.classList.toggle('active'));
+    menuIconLines.forEach(item => item.classList.toggle('active', open));
 
-    document.body.classList.toggle('no-scroll');
+    document.body.classList.toggle('no-scroll', open);
+    syncBurgerA11y();
+}
+
+function toggleBurgerMenu() {
+    setBurgerMenuOpen(!isBurgerMenuOpen);
 }
 
 function addMenuIconClicker() {
@@ -39,13 +67,26 @@ function addBurgerMenuClicker() {
     }));
 }
 
-function handleWindowResize() {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-        if (window.innerWidth > 768 && isBurgerMenuOpen) {
-            toggleBurgerMenu();
-        }
-    }, 150);
+function handleDocumentKeydown(event) {
+    if (event.key !== 'Escape' || !isBurgerMenuOpen || isBookingDialogOpen()) {
+        return;
+    }
+
+    toggleBurgerMenu();
+}
+
+function handleBurgerBreakpointChange(event) {
+    if (!event.matches) {
+        setBurgerMenuOpen(false, { animate: false });
+    }
+}
+
+function handleMenuTransitionEnd(event) {
+    if (event.target !== burgerMenu || isBurgerMenuOpen) {
+        return;
+    }
+
+    burgerMenu.classList.remove('is-animating');
 }
 
 export default function initBurgerMenu() {
@@ -56,7 +97,10 @@ export default function initBurgerMenu() {
         return;
     }
 
+    syncBurgerA11y();
     addMenuIconClicker();
     addBurgerMenuClicker();
-    window.addEventListener('resize', handleWindowResize);
+    burgerMenu.addEventListener('transitionend', handleMenuTransitionEnd);
+    document.addEventListener('keydown', handleDocumentKeydown);
+    burgerBreakpoint.addEventListener('change', handleBurgerBreakpointChange);
 }

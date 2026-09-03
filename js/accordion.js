@@ -6,8 +6,11 @@ function getQuestions() {
 
 function closeAll(questions) {
     questions.forEach(question => {
-        question.querySelector('.answer-text')?.classList.remove('active');
+        const answer = question.querySelector('.answer-text');
+        answer?.classList.remove('active');
+        answer?.setAttribute('aria-hidden', 'true');
         question.querySelector('.question-button-container')?.classList.remove('active');
+        question.querySelector('.question-header')?.setAttribute('aria-expanded', 'false');
     });
 }
 
@@ -19,8 +22,11 @@ function openItem(questions, index) {
         return;
     }
 
+    const answer = question.querySelector('.answer-text');
     question.querySelector('.question-button-container')?.classList.add('active');
-    question.querySelector('.answer-text')?.classList.add('active');
+    answer?.classList.add('active');
+    answer?.setAttribute('aria-hidden', 'false');
+    question.querySelector('.question-header')?.setAttribute('aria-expanded', 'true');
 }
 
 function persistIndex(index) {

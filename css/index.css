@@ -65,8 +65,39 @@ h4 {
   font-weight: normal;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.heading-small {
+  font-size: 20px;
+  line-height: 28px;
+  text-transform: uppercase;
+  cursor: default;
+  margin: 0;
+  font-weight: normal;
+}
+
 input:focus {
   outline: none;
+}
+
+input:focus-visible {
+  border-color: var(--portfolio-red);
+  outline: 1px solid var(--portfolio-red);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 1px solid var(--portfolio-red);
 }
 
 /* Автозаполнение формы */
@@ -212,8 +243,6 @@ select:-webkit-autofill:focus {
 
 .header-navigation-container {
   padding-right: 20px;
-  transition: opacity 1s;
-  opacity: 1;
 }
 
 .portfolio-navigation {
@@ -254,6 +283,10 @@ select:-webkit-autofill:focus {
 
 .button-div {
   height: 60px;
+  width: 100%;
+  padding: 0;
+  border: none;
+  font-family: inherit;
   font-size: 16px;
   line-height: 60px;
   cursor: pointer;
@@ -261,19 +294,31 @@ select:-webkit-autofill:focus {
   text-transform: uppercase;
   color: var(--portfolio-white);
   background-color: var(--portfolio-black);
+  appearance: none;
   transition: background-color 1s, color 1s;
 }
 
-.button-div.disabled {
+.button-div.disabled,
+.button-div:disabled {
   background-color: var(--portfolio-grey);
+  color: var(--portfolio-white);
+  opacity: 1;
   cursor: default;
   pointer-events: none;
 }
 
 .menu-logo-container {
-  transition: opacity 1s;
   opacity: 0;
   display: none;
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.menu-logo-container,
+.menu-logo-container * {
+  cursor: pointer;
 }
 
 .menu-logo {
@@ -284,6 +329,7 @@ select:-webkit-autofill:focus {
 }
 
 .menu-line {
+  display: block;
   height: 2px;
   background-color: var(--portfolio-white);
   transition: background-color 1s, transform 1s ease;
@@ -310,7 +356,7 @@ select:-webkit-autofill:focus {
   .navigation-text:hover {
     color: var(--portfolio-red);
   }
-  .button-div:hover:not(.disabled) {
+  .button-div:hover:not(.disabled, :disabled) {
     background-color: var(--portfolio-red);
     color: var(--portfolio-black);
   }
@@ -335,9 +381,11 @@ select:-webkit-autofill:focus {
     background-color: var(--portfolio-black);
     opacity: 0;
     transform: translateX(100%);
-    transition: transform 2s, opacity 1s;
     pointer-events: none;
     z-index: 4;
+  }
+  .header-navigation-container.is-animating {
+    transition: transform 2s, opacity 1s;
   }
   .header-navigation-container.active {
     transform: translateX(0);
@@ -727,7 +775,7 @@ select:-webkit-autofill:focus {
   .price-block:hover {
     border-color: var(--portfolio-red);
   }
-  .price-block:hover .button-div:not(.disabled) {
+  .price-block:hover .button-div:not(.disabled, :disabled) {
     background-color: var(--portfolio-red);
     color: var(--portfolio-black);
   }
@@ -765,7 +813,15 @@ select:-webkit-autofill:focus {
 }
 
 .question-header {
+  width: 100%;
   height: 63px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  appearance: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -773,7 +829,8 @@ select:-webkit-autofill:focus {
   transition: color 1s;
 }
 
-.question-header > h3 {
+.question-header,
+.question-header * {
   cursor: pointer;
 }
 
@@ -785,6 +842,7 @@ select:-webkit-autofill:focus {
   justify-content: center;
   align-items: center;
   margin-right: 2px;
+  flex-shrink: 0;
 }
 
 .question-button-element {
@@ -890,6 +948,7 @@ select:-webkit-autofill:focus {
 
 .contacts-button {
   flex: 0 0 200px;
+  width: auto;
 }
 
 @media (hover: hover) {
@@ -924,17 +983,30 @@ select:-webkit-autofill:focus {
 .pop-up {
   width: 100%;
   height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  color: inherit;
   background-color: rgba(34, 34, 34, 0.6);
   position: fixed;
   left: 0;
   top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 30;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0.7s, opacity 0.7s;
+}
+
+.pop-up[open] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pop-up::backdrop {
+  background: transparent;
 }
 
 .pop-up.active {
@@ -967,6 +1039,10 @@ select:-webkit-autofill:focus {
 
 .pop-up-icon-container {
   cursor: pointer;
+  border: none;
+  background: transparent;
+  color: inherit;
+  padding: 0;
   transition: color 1s;
 }
 

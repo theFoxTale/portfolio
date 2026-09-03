@@ -63,14 +63,14 @@ export function openBookingWhatsApp(name, phone, packageName) {
     );
 }
 
-export function bindBookingFields({ nameInput, phoneInput, submitButton, onValidSubmit }) {
+export function bindBookingFields({ form, nameInput, phoneInput, submitButton, onValidSubmit }) {
     let isNameOk = false;
     let isPhoneOk = false;
 
     function updateSubmitButton() {
-        (isNameOk && isPhoneOk)
-            ? submitButton.classList.remove('disabled')
-            : submitButton.classList.add('disabled');
+        const isEnabled = isNameOk && isPhoneOk;
+        submitButton.disabled = !isEnabled;
+        submitButton.classList.toggle('disabled', !isEnabled);
     }
 
     function reset(name = '', phone = PHONE_PREFIX) {
@@ -79,6 +79,19 @@ export function bindBookingFields({ nameInput, phoneInput, submitButton, onValid
         isNameOk = isNameValid(sanitizeName(name));
         isPhoneOk = isPhoneValid(phone);
         updateSubmitButton();
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        if (!isNameOk || !isPhoneOk) {
+            return;
+        }
+
+        onValidSubmit?.({
+            name: nameInput.value.trim(),
+            phone: phoneInput.value,
+        });
     }
 
     nameInput.addEventListener('input', function() {
@@ -93,16 +106,7 @@ export function bindBookingFields({ nameInput, phoneInput, submitButton, onValid
         updateSubmitButton();
     });
 
-    submitButton.addEventListener('click', () => {
-        if (submitButton.classList.contains('disabled')) {
-            return;
-        }
-
-        onValidSubmit?.({
-            name: nameInput.value.trim(),
-            phone: phoneInput.value,
-        });
-    });
+    form.addEventListener('submit', handleSubmit);
 
     updateSubmitButton();
 

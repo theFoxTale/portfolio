@@ -1,28 +1,66 @@
 import { bindBookingFields, openBookingWhatsApp } from "./form-validation.js";
 
-let popUpWindow, popUpName, popUpPhone, popUpButton;
+let popUpWindow, popUpForm, popUpName, popUpPhone, popUpButton;
 let resetPopUpFields;
 let selectedPackageName = '';
+let isClosingPopUp = false;
+let closePopUpTimeoutId;
 
 function initPopUpElements() {
     popUpWindow = document.querySelector('.pop-up');
+    popUpForm = document.querySelector('.pop-up-form');
     popUpName = document.querySelector('.pop-up-name');
     popUpPhone = document.querySelector('.pop-up-phone');
     popUpButton = document.querySelector('.button-div.pop-up-element');
 }
 
+function onCloseTransitionEnd(event) {
+    if (event.target !== popUpWindow || event.propertyName !== 'opacity') {
+        return;
+    }
+
+    finishClosePopUp();
+}
+
+function finishClosePopUp() {
+    clearTimeout(closePopUpTimeoutId);
+    popUpWindow.removeEventListener('transitionend', onCloseTransitionEnd);
+
+    if (popUpWindow.open) {
+        popUpWindow.close();
+    }
+
+    isClosingPopUp = false;
+}
+
 function closePopUp() {
-    popUpWindow.classList.remove('active');
-    document.body.classList.remove('no-scroll');
+    if (!popUpWindow.open || isClosingPopUp) {
+        return;
+    }
+
+    isClosingPopUp = true;
     selectedPackageName = '';
+    document.body.classList.remove('no-scroll');
+    popUpWindow.classList.remove('active');
+
+    popUpWindow.addEventListener('transitionend', onCloseTransitionEnd);
+    closePopUpTimeoutId = setTimeout(finishClosePopUp, 800);
 }
 
 function openPopUp(packageName) {
+    if (isClosingPopUp) {
+        finishClosePopUp();
+    }
+
     selectedPackageName = packageName || '';
     resetPopUpFields();
 
-    popUpWindow.classList.add('active');
+    popUpWindow.showModal();
     document.body.classList.add('no-scroll');
+
+    requestAnimationFrame(() => {
+        popUpWindow.classList.add('active');
+    });
 
     setTimeout(function () {
         popUpName.focus();
@@ -52,17 +90,24 @@ function addBookingButtonsClicker() {
     });
 
     /* Закрыть при клике по крестику */
-    document.getElementById('close-pop-up-button').addEventListener('click', closePopUp);
+    popUpWindow.addEventListener('cancel', (event) => {
+        event.preventDefault();
+        closePopUp();
+    });
+
+    const closeButton = document.getElementById('close-pop-up-button');
+    closeButton?.addEventListener('click', closePopUp);
 }
 
 export default function initPopUp() {
     initPopUpElements();
 
-    if (!popUpWindow || !popUpName || !popUpPhone || !popUpButton) {
+    if (!popUpWindow || !popUpForm || !popUpName || !popUpPhone || !popUpButton) {
         return;
     }
 
     resetPopUpFields = bindBookingFields({
+        form: popUpForm,
         nameInput: popUpName,
         phoneInput: popUpPhone,
         submitButton: popUpButton,

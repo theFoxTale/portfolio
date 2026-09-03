@@ -20,7 +20,7 @@
                 <img src="assets/img/svg/logo.svg" width="19" height="17" alt="Vera's Portfolio">
             </div>
 
-            <nav class="header-navigation-container">
+            <nav id="header-navigation" class="header-navigation-container">
                 <ul class="portfolio-navigation">
                     <li>
                         <a href="#about-section" class="navigation-text">About Me</a>
@@ -40,12 +40,12 @@
                 </ul>
             </nav>
 
-            <div class="header-icon-container menu-logo-container">
-                <div class="menu-logo">
-                    <div class="menu-line menu-upper-line"></div>
-                    <div class="menu-line menu-lower-line"></div>
-                </div>
-            </div>
+            <button type="button" class="header-icon-container menu-logo-container" aria-label="Open menu" aria-expanded="false" aria-controls="header-navigation">
+                <span class="menu-logo" aria-hidden="true">
+                    <span class="menu-line menu-upper-line"></span>
+                    <span class="menu-line menu-lower-line"></span>
+                </span>
+            </button>
         </div>
     </header>
 
@@ -79,12 +79,12 @@
                             </div>
 
                             <h1>Professional photographer</h1>
-                            <h3>Capture the Moment. Tell Your Story.</h3>
+                            <h2 class="heading-small">Capture the Moment. Tell Your Story.</h2>
                         </div>
 
                         <a href="#about-section" class="down-link">
                             <span class="text-mulish-400">Scroll down</span>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                 <path d="M12 5V19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M19 12L12 19L5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
@@ -97,9 +97,9 @@
 
                     <div class="second-hero-image-background">
                         <img class="second-hero-image" src="assets/img/webp/img-11.webp" alt="Portrait of photographer Vera" width="280" height="375" fetchpriority="high" decoding="async">
-                        <pre class="text-mulish-400 presentation-text">Hi! I’m Vera, a photographer.
-For me, photography is more
-than just an image.</pre>
+                        <p class="text-mulish-400 presentation-text">Hi! I’m Vera, a photographer.<br>
+For me, photography is more<br>
+than just an image.</p>
                     </div>
                 </div>
             </div>
@@ -180,7 +180,7 @@ than just an image.</pre>
 
                         <div class="flex-vertical">
                             <p class="text-mulish-italic">For short sessions and quick results</p>
-                            <div class="button-div book-now">Book now</div>
+                            <button type="button" class="button-div book-now">Book now</button>
                         </div>
                     </div>
 
@@ -201,7 +201,7 @@ than just an image.</pre>
 
                         <div class="flex-vertical">
                             <p class="text-mulish-italic">Perfect for couples, portraits, or lifestyle</p>
-                            <div class="button-div book-now">Book now</div>
+                            <button type="button" class="button-div book-now">Book now</button>
                         </div>
                     </div>
 
@@ -223,7 +223,7 @@ than just an image.</pre>
 
                         <div class="flex-vertical">
                             <p class="text-mulish-italic">For when you want to capture everything</p>
-                            <div class="button-div book-now">Book now</div>
+                            <button type="button" class="button-div book-now">Book now</button>
                         </div>
                     </div>
 
@@ -245,7 +245,7 @@ than just an image.</pre>
 
                         <div class="flex-vertical">
                             <p class="text-mulish-italic">Full-day or partial wedding<br> coverage</p>
-                            <div class="button-div book-now">Book now</div>
+                            <button type="button" class="button-div book-now">Book now</button>
                         </div>
                     </div>
                 </div>
@@ -261,84 +261,100 @@ than just an image.</pre>
 
                 <div class="questions-container">
                     <div class="question-div">
-                        <div class="question-header">
-                            <h3>How do I book a shoot?</h3>
-                            <div class="question-button-container">
-                                <div class="question-button-element horizontal"></div>
-                                <div class="question-button-element vertical"></div>
-                            </div>
-                        </div>
-                        <p class="text-mulish-400 answer-text">Super simple – just message me through any convenient platform (Instagram, Telegram, WhatsApp, or the contact form on this site). We’ll discuss your preferred date, city, and session type. Once confirmed, I’ll reserve the date for you and send over preparation tips.</p>
+                        <h3>
+                            <button type="button" class="question-header" aria-expanded="false" aria-controls="faq-answer-1">
+                                How do I book a shoot?
+                                <span class="question-button-container" aria-hidden="true">
+                                    <span class="question-button-element horizontal"></span>
+                                    <span class="question-button-element vertical"></span>
+                                </span>
+                            </button>
+                        </h3>
+                        <p id="faq-answer-1" class="text-mulish-400 answer-text" aria-hidden="true">Super simple – just message me through any convenient platform (Instagram, Telegram, WhatsApp, or the contact form on this site). We’ll discuss your preferred date, city, and session type. Once confirmed, I’ll reserve the date for you and send over preparation tips.</p>
                     </div>
                     <div class="question-div">
-                        <div class="question-header">
-                            <h3>Can I choose the location myself?</h3>
-                            <div class="question-button-container">
-                                <div class="question-button-element horizontal"></div>
-                                <div class="question-button-element vertical"></div>
-                            </div>
-                        </div>
-                        <p class="text-mulish-400 answer-text">Absolutely! If there’s a special place you love or have in mind — I’m happy to shoot there. If you’re unsure, I can suggest beautiful spots with great lighting and atmosphere, tailored to your vision and mood.</p>
+                        <h3>
+                            <button type="button" class="question-header" aria-expanded="false" aria-controls="faq-answer-2">
+                                Can I choose the location myself?
+                                <span class="question-button-container" aria-hidden="true">
+                                    <span class="question-button-element horizontal"></span>
+                                    <span class="question-button-element vertical"></span>
+                                </span>
+                            </button>
+                        </h3>
+                        <p id="faq-answer-2" class="text-mulish-400 answer-text" aria-hidden="true">Absolutely! If there’s a special place you love or have in mind — I’m happy to shoot there. If you’re unsure, I can suggest beautiful spots with great lighting and atmosphere, tailored to your vision and mood.</p>
                     </div>
                     <div class="question-div">
-                        <div class="question-header">
-                            <h3>How long does the shoot take?</h3>
-                            <div class="question-button-container">
-                                <div class="question-button-element horizontal"></div>
-                                <div class="question-button-element vertical"></div>
-                            </div>
-                        </div>
-                        <p class="text-mulish-400 answer-text">That depends on the package you choose. On average, sessions last from 1 to 4 hours. We’ll plan the pace and type of shoot together — from relaxed city strolls and love stories to more dynamic or editorial sessions.</p>
+                        <h3>
+                            <button type="button" class="question-header" aria-expanded="false" aria-controls="faq-answer-3">
+                                How long does the shoot take?
+                                <span class="question-button-container" aria-hidden="true">
+                                    <span class="question-button-element horizontal"></span>
+                                    <span class="question-button-element vertical"></span>
+                                </span>
+                            </button>
+                        </h3>
+                        <p id="faq-answer-3" class="text-mulish-400 answer-text" aria-hidden="true">That depends on the package you choose. On average, sessions last from 1 to 4 hours. We’ll plan the pace and type of shoot together — from relaxed city strolls and love stories to more dynamic or editorial sessions.</p>
                     </div>
                     <div class="question-div">
-                        <div class="question-header">
-                            <h3>When will I receive the photos?</h3>
-                            <div class="question-button-container">
-                                <div class="question-button-element horizontal"></div>
-                                <div class="question-button-element vertical"></div>
-                            </div>
-                        </div>
-                        <p class="text-mulish-400 answer-text">You’ll receive your edited photos within 7–14 days. For event and wedding sessions — up to 30 days. I deliver them in a stylish online gallery, where you can download them in full quality or easily share with friends and family.</p>
+                        <h3>
+                            <button type="button" class="question-header" aria-expanded="false" aria-controls="faq-answer-4">
+                                When will I receive the photos?
+                                <span class="question-button-container" aria-hidden="true">
+                                    <span class="question-button-element horizontal"></span>
+                                    <span class="question-button-element vertical"></span>
+                                </span>
+                            </button>
+                        </h3>
+                        <p id="faq-answer-4" class="text-mulish-400 answer-text" aria-hidden="true">You’ll receive your edited photos within 7–14 days. For event and wedding sessions — up to 30 days. I deliver them in a stylish online gallery, where you can download them in full quality or easily share with friends and family.</p>
                     </div>
                     <div class="question-div">
-                        <div class="question-header">
-                            <h3>Will you help me pose?</h3>
-                            <div class="question-button-container">
-                                <div class="question-button-element horizontal"></div>
-                                <div class="question-button-element vertical"></div>
-                            </div>
-                        </div>
-                        <p class="text-mulish-400 answer-text">Definitely! I’ll guide you gently throughout the session — where to look, how to move, how to relax. The goal is to make you feel comfortable and natural. My approach is relaxed, and I’ll never force awkward poses. The result? Real, expressive, and beautiful photos.</p>
+                        <h3>
+                            <button type="button" class="question-header" aria-expanded="false" aria-controls="faq-answer-5">
+                                Will you help me pose?
+                                <span class="question-button-container" aria-hidden="true">
+                                    <span class="question-button-element horizontal"></span>
+                                    <span class="question-button-element vertical"></span>
+                                </span>
+                            </button>
+                        </h3>
+                        <p id="faq-answer-5" class="text-mulish-400 answer-text" aria-hidden="true">Definitely! I’ll guide you gently throughout the session — where to look, how to move, how to relax. The goal is to make you feel comfortable and natural. My approach is relaxed, and I’ll never force awkward poses. The result? Real, expressive, and beautiful photos.</p>
                     </div>
                     <div class="question-div">
-                        <div class="question-header">
-                            <h3>What should I wear?</h3>
-                            <div class="question-button-container">
-                                <div class="question-button-element horizontal"></div>
-                                <div class="question-button-element vertical"></div>
-                            </div>
-                        </div>
-                        <p class="text-mulish-400 answer-text">After booking, I’ll send you a style guide with suggestions for colors, textures, and combinations. The most important thing is that you feel confident in your outfit. I’m also happy to help you coordinate looks or plan something cohesive for couples or groups.</p>
+                        <h3>
+                            <button type="button" class="question-header" aria-expanded="false" aria-controls="faq-answer-6">
+                                What should I wear?
+                                <span class="question-button-container" aria-hidden="true">
+                                    <span class="question-button-element horizontal"></span>
+                                    <span class="question-button-element vertical"></span>
+                                </span>
+                            </button>
+                        </h3>
+                        <p id="faq-answer-6" class="text-mulish-400 answer-text" aria-hidden="true">After booking, I’ll send you a style guide with suggestions for colors, textures, and combinations. The most important thing is that you feel confident in your outfit. I’m also happy to help you coordinate looks or plan something cohesive for couples or groups.</p>
                     </div>
                     <div class="question-div">
-                        <div class="question-header">
-                            <h3>Do you retouch the photos?</h3>
-                            <div class="question-button-container">
-                                <div class="question-button-element horizontal"></div>
-                                <div class="question-button-element vertical"></div>
-                            </div>
-                        </div>
-                        <p class="text-mulish-400 answer-text">Yes, all photos are color-corrected and lightly retouched. My editing style is clean and natural — no overdone filters or fake skin. Just you, at your best. Extra retouching is available upon request.</p>
+                        <h3>
+                            <button type="button" class="question-header" aria-expanded="false" aria-controls="faq-answer-7">
+                                Do you retouch the photos?
+                                <span class="question-button-container" aria-hidden="true">
+                                    <span class="question-button-element horizontal"></span>
+                                    <span class="question-button-element vertical"></span>
+                                </span>
+                            </button>
+                        </h3>
+                        <p id="faq-answer-7" class="text-mulish-400 answer-text" aria-hidden="true">Yes, all photos are color-corrected and lightly retouched. My editing style is clean and natural — no overdone filters or fake skin. Just you, at your best. Extra retouching is available upon request.</p>
                     </div>
                     <div class="question-div">
-                        <div class="question-header">
-                            <h3>Can I get the raw files?</h3>
-                            <div class="question-button-container">
-                                <div class="question-button-element horizontal"></div>
-                                <div class="question-button-element vertical"></div>
-                            </div>
-                        </div>
-                        <p class="text-mulish-400 answer-text">I don’t deliver RAW files. My work includes not only shooting, but also careful selection and editing to create a complete and polished result. You’ll receive only the best images, ready for printing, sharing, or publishing.</p>
+                        <h3>
+                            <button type="button" class="question-header" aria-expanded="false" aria-controls="faq-answer-8">
+                                Can I get the raw files?
+                                <span class="question-button-container" aria-hidden="true">
+                                    <span class="question-button-element horizontal"></span>
+                                    <span class="question-button-element vertical"></span>
+                                </span>
+                            </button>
+                        </h3>
+                        <p id="faq-answer-8" class="text-mulish-400 answer-text" aria-hidden="true">I don’t deliver RAW files. My work includes not only shooting, but also careful selection and editing to create a complete and polished result. You’ll receive only the best images, ready for printing, sharing, or publishing.</p>
                     </div>
                 </div>
             </div>
@@ -346,43 +362,47 @@ than just an image.</pre>
 
         <section id="contacts-section" class="white-section contacts-section">
             <div class="content-container contacts-container">
-                <h3>Like my portfolio? Sign up for a shoot!</h3>
-                <div class="flex-centered inputs-container">
-                    <input type="text" class="text-input contacts-input contacts-name" placeholder="your name">
-                    <input type="text" class="text-input contacts-input contacts-phone" value="+1 ">
-                    <div class="button-div disabled contacts-button">Book now</div>
-                </div>
+                <h2 class="heading-small">Like my portfolio? Sign up for a shoot!</h2>
+                <form class="flex-centered inputs-container contacts-form" action="#" method="post" novalidate>
+                    <label class="visually-hidden" for="contacts-name">Your name</label>
+                    <input id="contacts-name" type="text" name="name" autocomplete="name" class="text-input contacts-input contacts-name" placeholder="your name">
+                    <label class="visually-hidden" for="contacts-phone">Your phone</label>
+                    <input id="contacts-phone" type="tel" name="tel" autocomplete="tel" class="text-input contacts-input contacts-phone" value="+1 ">
+                    <button type="submit" class="button-div disabled contacts-button">Book now</button>
+                </form>
             </div>
         </section>
 
-        <div class="pop-up">
+        <dialog class="pop-up" aria-labelledby="pop-up-title">
             <div class="pop-up-content">
                 <div class="pop-up-header">
-                    <div class="header-icon-container pop-up-icon-container">
-                        <svg id="close-pop-up-button" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <button type="button" class="header-icon-container pop-up-icon-container" id="close-pop-up-button" aria-label="Close">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M18 6L6 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                    </div>
-                    <h3 class="pop-up-element">Like my portfolio? Sign up for a shoot!</h3>
+                    </button>
+                    <h2 id="pop-up-title" class="heading-small pop-up-element">Like my portfolio? Sign up for a shoot!</h2>
                 </div>
 
-                <div class="flex-centered inputs-container">
-                    <input type="text" class="text-input pop-up-element pop-up-name" placeholder="your name">
-                    <input type="text" class="text-input pop-up-element pop-up-phone" value="+1 ">
-                    <div class="button-div disabled pop-up-element">Book now</div>
-                </div>
+                <form class="flex-centered inputs-container pop-up-form" action="#" method="post" novalidate>
+                    <label class="visually-hidden" for="pop-up-name">Your name</label>
+                    <input id="pop-up-name" type="text" name="name" autocomplete="name" class="text-input pop-up-element pop-up-name" placeholder="your name">
+                    <label class="visually-hidden" for="pop-up-phone">Your phone</label>
+                    <input id="pop-up-phone" type="tel" name="tel" autocomplete="tel" class="text-input pop-up-element pop-up-phone" value="+1 ">
+                    <button type="submit" class="button-div disabled pop-up-element">Book now</button>
+                </form>
             </div>
-        </div>
+        </dialog>
     </main>
 
     <footer class="black-section">
         <div class="content-container">
             <nav>
                 <ul class="portfolio-navigation">
-                    <li><a href="https://www.instagram.com/annie_in_life/" target="_blank" title="Show my Instagram" class="navigation-text">instagram</a></li>
-                    <li><a href="https://t.me/annie_in_life" target="_blank" title="Write me in Telegram" class="navigation-text">telegram</a></li>
-                    <li><a href="https://wa.me/12349843572?text=Hello!%20I%20found%20your%20website%20and%20I%20want%20to%20contact%20you." target="_blank" title="Write me in WhatsApp" class="navigation-text">whatsapp</a></li>
+                    <li><a href="https://www.instagram.com/annie_in_life/" target="_blank" rel="noopener noreferrer" title="Show my Instagram" class="navigation-text">instagram</a></li>
+                    <li><a href="https://t.me/annie_in_life" target="_blank" rel="noopener noreferrer" title="Write me in Telegram" class="navigation-text">telegram</a></li>
+                    <li><a href="https://wa.me/12349843572?text=Hello!%20I%20found%20your%20website%20and%20I%20want%20to%20contact%20you." target="_blank" rel="noopener noreferrer" title="Write me in WhatsApp" class="navigation-text">whatsapp</a></li>
                     <li class="navigation-text no-hover">Europe</li>
                     <li><a href="tel:+12349843572" title="Phone me" class="navigation-text">+1 234 9843572</a></li>
                 </ul>
