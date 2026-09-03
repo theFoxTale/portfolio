@@ -14,7 +14,7 @@
     "photography",
     "rs-school"
   ],
-  "license": "ISC",
+  "license": "UNLICENSED",
   "devDependencies": {
     "sass": "^1.93.2"
   }

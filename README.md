@@ -1,34 +1,109 @@
-**Language:** [English](README_en.md) | [Русский](README.md)
+**Язык:** [English](README_en.md) | [Русский](README.md)
 
-## Портфолио фотографа
-Это моя домашняя работа для [RS School](https://rs.school/), JS / Front-end Course 2025 Q3
+# Анна Демьянович — портфолио фотографа
 
-1. **Задание**: [текст](https://github.com/rolling-scopes-school/tasks/blob/master/stage1/tasks/portfolio/portfolio-part-1.md) + [дизайн](https://www.figma.com/design/iFsApEUsf6tPwXas56gOiT/Portfolio?node-id=26-1637&t=L9uya9x6r8IlKFzP-0)
-2. **Деплой** (можно посмотреть как работает сайт): [ссылка](https://thefoxtale.github.io/portfolio/)
+Одностраничный лендинг фотографа на HTML, SCSS и JavaScript для [RS School](https://rs.school/), JS / Front-end Course 2025 Q3.
 
-### Локальная разработка
+[![GitHub Pages](https://img.shields.io/badge/demo-GitHub%20Pages-0A66C2?style=flat&logo=githubpages&logoColor=white)](https://thefoxtale.github.io/portfolio/)
+[![HTML5](https://img.shields.io/badge/markup-HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://thefoxtale.github.io/portfolio/)
+[![Sass](https://img.shields.io/badge/styles-Sass-CC6699?style=flat&logo=sass&logoColor=white)](https://thefoxtale.github.io/portfolio/)
+[![JavaScript](https://img.shields.io/badge/scripts-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://thefoxtale.github.io/portfolio/)
+[![RS School](https://img.shields.io/badge/RS%20School-JS%20%2F%20Front--end-000000?style=flat)](https://rs.school/courses/javascript)
+[![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-lightgrey?style=flat)](#лицензия)
+
+## Демо
+
+**Сайт:** [https://thefoxtale.github.io/portfolio/](https://thefoxtale.github.io/portfolio/)
+
+**Задание:** [текст](https://github.com/rolling-scopes-school/tasks/blob/master/stage1/tasks/portfolio/portfolio-part-1.md) · **Дизайн:** [Figma](https://www.figma.com/design/iFsApEUsf6tPwXas56gOiT/Portfolio?node-id=26-1637&t=L9uya9x6r8IlKFzP-0)
+
+## Скриншот
+
+![Главная, ширина 1440px](assets/screenshots/main.jpg)
+
+<details>
+<summary>Дополнительные скриншоты</summary>
+
+![Средняя ширина](assets/screenshots/medium.jpg)
+![Узкая ширина](assets/screenshots/small.jpg)
+</details>
+
+## О проекте
+
+Учебный лендинг фотографа **Vera**: hero, about, галерея, пакеты съёмки, FAQ и форма записи.  
+Локальные шрифты, семантическая вёрстка, адаптив 1440 / 768 / 380 и интерактив на чистом JavaScript.
+
+## Возможности
+
+- Семантические ориентиры (`header`, `main`, `footer`, `nav`, `section`, `dialog`)
+- Доступные кнопки и формы, видимый `:focus-visible`, ARIA у FAQ и бургер-меню
+- CSS-переменные для цвета и длительности анимаций, `prefers-reduced-motion`
+- Локальные шрифты **Oswald** и **Mulish** (без CDN)
+- Бургер-меню, слайдер портфолио, аккордеон FAQ, модальное окно записи
+- Запись на съёмку через WhatsApp (имя, телефон, выбранный пакет)
+- Hover-эффекты только на устройствах с указателем
+- Деплой на GitHub Pages
+
+## Стек
+
+| Область | Инструменты |
+|---------|-------------|
+| Разметка | HTML5 |
+| Стили | SCSS (модули по секциям, Flexbox, custom properties) |
+| Скрипты | Vanilla JavaScript (ES modules) |
+| Шрифты | Oswald, Mulish (локальные `.woff` / `.woff2`) |
+| Ассеты | SVG, WebP, PNG-курсоры слайдера |
+| Сборка | Sass (`npm run build-css` / `watch-css`) |
+| Деплой | GitHub Pages |
+
+## Как запустить
 
 ```bash
+git clone https://github.com/theFoxTale/portfolio.git
+cd portfolio
 npm i
 npm run watch-css
 ```
 
-Откройте `index.html` в браузере. `watch-css` пересобирает `css/index.css` при изменении SCSS.
+Откройте `index.html` в браузере или поднимите локальный сервер:
+
+```bash
+npx serve .
+```
+
+Адрес появится в терминале (обычно `http://localhost:3000`).
 
 - `npm run build-css` — разовая сборка CSS
-- `npm run build-css-prod` — сжатый CSS для продакшена
+- `npm run build-css-prod` — сжатый CSS
 - `npm run lint` — проверка синтаксиса JavaScript
 
-![Главная](assets/screenshots/main.jpg)
+## Структура проекта
 
-<details>
-<summary>Дополнительные криншоты</summary>
+```text
+portfolio/
+├── .github/                # Шаблон pull request
+├── index.html
+├── css/                    # Скомпилированный CSS для GitHub Pages
+├── scss/
+│   ├── index.scss
+│   └── sections/           # Стили по секциям
+├── js/                     # ES-модули: бургер, слайдер, FAQ, формы
+├── assets/
+│   ├── fonts/              # Oswald, Mulish
+│   ├── img/                # SVG, WebP, PNG
+│   └── screenshots/
+├── package.json
+├── README.md
+└── README_en.md
+```
 
-![Средний](assets/screenshots/medium.jpg)
-![Маленький](assets/screenshots/small.jpg)
-</details>
+## Задание RS School
 
-### Описание задачи:
+Репозиторий закрывает **Portfolio. Part 1–2** курса JS / Front-end:
+
+- Адаптив 1440 / 768 / 380
+- Бургер, слайдер, FAQ, модальное окно
+- Контент на английском, деплой на GitHub Pages
 
 <details>
 <summary>Часть 1: Адаптивная верстка</summary>
@@ -138,3 +213,14 @@ npm run watch-css
 5. Реализация кнопки прокрутки вниз: +4
     - [x] При клике на кнопку страница прокручивается к разделу About: +4
 </details>
+
+## Контакты
+
+- GitHub: [theFoxTale](https://github.com/theFoxTale)
+- Telegram: [@annie_in_life](https://t.me/annie_in_life)
+- Email: [makarenkoanna@yandex.ru](mailto:makarenkoanna@yandex.ru)
+
+## Лицензия
+
+Учебный проект для RS School.  
+Все права защищены, если не указано иное.
