@@ -6,6 +6,19 @@
 1. **Задание**: [текст](https://github.com/rolling-scopes-school/tasks/blob/master/stage1/tasks/portfolio/portfolio-part-1.md) + [дизайн](https://www.figma.com/design/iFsApEUsf6tPwXas56gOiT/Portfolio?node-id=26-1637&t=L9uya9x6r8IlKFzP-0)
 2. **Деплой** (можно посмотреть как работает сайт): [ссылка](https://thefoxtale.github.io/portfolio/)
 
+### Локальная разработка
+
+```bash
+npm i
+npm run watch-css
+```
+
+Откройте `index.html` в браузере. `watch-css` пересобирает `css/index.css` при изменении SCSS.
+
+- `npm run build-css` — разовая сборка CSS
+- `npm run build-css-prod` — сжатый CSS для продакшена
+- `npm run lint` — проверка синтаксиса JavaScript
+
 ![Главная](assets/screenshots/main.jpg)
 
 <details>

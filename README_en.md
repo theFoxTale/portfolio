@@ -6,6 +6,19 @@ This is my homework for [RS School](https://rs.school/), JS / Front-end Course 2
 1. **Task**: [text](https://github.com/rolling-scopes-school/tasks/blob/master/stage1/tasks/portfolio/portfolio-part-1.md) + [design](https://www.figma.com/design/iFsApEUsf6tPwXas56gOiT/Portfolio?node-id=26-1637&t=L9uya9x6r8IlKFzP-0)
 2. **Deploy** (you may see how site works): [link](https://thefoxtale.github.io/portfolio/)
 
+### Local setup
+
+```bash
+npm i
+npm run watch-css
+```
+
+Open `index.html` in a browser. `watch-css` rebuilds `css/index.css` whenever SCSS files change.
+
+- `npm run build-css` — one-off CSS build
+- `npm run build-css-prod` — minified CSS for production
+- `npm run lint` — JavaScript syntax check
+
 ![Main](assets/screenshots/main.jpg)
 
 <details>
