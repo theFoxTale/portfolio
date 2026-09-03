@@ -4,7 +4,7 @@ let isBurgerMenuOpen = false;
 function toggleBurgerMenu() {
     isBurgerMenuOpen = !isBurgerMenuOpen;
 
-    const burgerMenu = document.querySelector('.burger-menu-container');
+    const burgerMenu = document.querySelector('.header-navigation-container');
     burgerMenu.classList.toggle('active');
 
     const menuIconLines = document.querySelectorAll('.menu-line');
@@ -19,8 +19,12 @@ function addMenuIconClicker() {
 }
 
 function addBurgerMenuClicker() {
-    const burgerMenuItems = document.querySelectorAll('.burger-menu-list a');
+    const burgerMenuItems = document.querySelectorAll('.header-navigation-container a');
     burgerMenuItems.forEach(item => item.addEventListener('click', function(event) {
+        if (!isBurgerMenuOpen) {
+            return;
+        }
+
         event.preventDefault();
 
         const targetSectionId = this.getAttribute('href');
