@@ -63,7 +63,7 @@
     text-transform: uppercase;
     text-decoration: none;
     color: var(--portfolio-white);
-    transition: color 1s;
+    transition: color var(--motion-hover);
 }
 
 .no-hover {
@@ -96,8 +96,8 @@
     color: var(--portfolio-white);
     background-color: var(--portfolio-black);
     appearance: none;
-    transition: background-color 1s,
-                color 1s;
+    transition: background-color var(--motion-hover),
+                color var(--motion-hover);
 }
 
 .button-div.disabled,
@@ -134,7 +134,7 @@
     display: block;
     height: 2px;
     background-color: var(--portfolio-white);
-    transition: background-color 1s, transform 1s ease;
+    transition: background-color var(--motion-hover), transform var(--motion-icon) ease;
 }
 
 .menu-upper-line {
@@ -192,7 +192,7 @@
     }
 
     .header-navigation-container.is-animating {
-        transition: transform 2s, opacity 1s;
+        transition: transform var(--motion-burger), opacity var(--motion-burger-fade);
     }
 
     .header-navigation-container.active {

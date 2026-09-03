@@ -7,14 +7,14 @@
     padding: 0;
     border: none;
     color: inherit;
-    background-color: rgba(34, 34, 34, 0.6);
+    background-color: color-mix(in srgb, var(--portfolio-black) 60%, transparent);
     position: fixed;
     left: 0;
     top: 0;
     z-index: 30;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0.7s, opacity 0.7s;
+    transition: visibility var(--motion-overlay), opacity var(--motion-overlay);
 }
 
 .pop-up[open] {
@@ -61,7 +61,7 @@
     background: transparent;
     color: inherit;
     padding: 0;
-    transition: color 1s;
+    transition: color var(--motion-hover);
 }
 
 @media (hover: hover) {

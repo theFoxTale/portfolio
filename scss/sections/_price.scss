@@ -22,7 +22,7 @@
     flex-direction: column;
     justify-content: space-between;
     border: 1px solid var(--portfolio-black);
-    transition: border-color 1s;
+    transition: border-color var(--motion-hover);
 }
 
 .price-ul {

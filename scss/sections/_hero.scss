@@ -55,7 +55,7 @@
 .down-link {
     text-decoration: none;
     color: var(--portfolio-white);
-    transition: color 1s;
+    transition: color var(--motion-hover);
 
     display: flex;
     align-items: center;

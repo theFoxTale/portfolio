@@ -1,0 +1,25 @@
+:root {
+    --motion-hover: 0.25s;
+    --motion-panel: 0.35s;
+    --motion-overlay: 0.3s;
+    --motion-burger: 2s;
+    --motion-burger-fade: 1s;
+    --motion-icon: 1s;
+    --motion-carousel: 0.1s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --motion-hover: 0.01ms;
+        --motion-panel: 0.01ms;
+        --motion-overlay: 0.01ms;
+        --motion-burger: 0.01ms;
+        --motion-burger-fade: 0.01ms;
+        --motion-icon: 0.01ms;
+        --motion-carousel: 0.01ms;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}

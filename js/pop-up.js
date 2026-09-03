@@ -44,7 +44,7 @@ function closePopUp() {
     popUpWindow.classList.remove('active');
 
     popUpWindow.addEventListener('transitionend', onCloseTransitionEnd);
-    closePopUpTimeoutId = setTimeout(finishClosePopUp, 800);
+    closePopUpTimeoutId = setTimeout(finishClosePopUp, 400);
 }
 
 function openPopUp(packageName) {

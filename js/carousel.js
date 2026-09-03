@@ -1,3 +1,5 @@
+import { prefersReducedMotion, reducedMotionQuery } from "./reduced-motion.js";
+
 let scrollFrameId;
 let carouselShift = 0;
 
@@ -9,7 +11,7 @@ let touchShift = 0;
 
 /* Перемещение мышкой */
 function startScroll(direction) {
-    if (touchIsActive) return;
+    if (touchIsActive || prefersReducedMotion()) return;
 
     stopScroll();
 
@@ -102,4 +104,5 @@ export default function initCarousel() {
 
     addCarouselMouseEvents();
     addCarouselTouchEvents();
+    reducedMotionQuery.addEventListener('change', stopScroll);
 }

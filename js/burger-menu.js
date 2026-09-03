@@ -1,3 +1,5 @@
+import { prefersReducedMotion } from "./reduced-motion.js";
+
 const burgerBreakpoint = window.matchMedia('(max-width: 768px)');
 
 let isBurgerMenuOpen = false;
@@ -19,7 +21,7 @@ function setBurgerMenuOpen(open, { animate = true } = {}) {
         return;
     }
 
-    const shouldAnimate = animate && burgerBreakpoint.matches;
+    const shouldAnimate = animate && burgerBreakpoint.matches && !prefersReducedMotion();
 
     if (shouldAnimate) {
         burgerMenu.classList.add('is-animating');
@@ -61,7 +63,7 @@ function addBurgerMenuClicker() {
         if (targetSection) {
             toggleBurgerMenu();
             targetSection.scrollIntoView({
-                behavior: 'smooth'
+                behavior: prefersReducedMotion() ? 'auto' : 'smooth'
             });
         }
     }));
