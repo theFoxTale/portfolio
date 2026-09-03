@@ -16,7 +16,6 @@ concurrency:
 
 jobs:
   mirror:
-    if: ${{ secrets.GITVERSE_TOKEN != '' }}
     runs-on: ubuntu-latest
     steps:
       - name: Mirror branches and tags to GitVerse
@@ -27,6 +26,11 @@ jobs:
           GV_REPO: theFoxTale/portfolio
         run: |
           set -euo pipefail
+
+          if [ -z "${GV_TOKEN}" ]; then
+            echo "GITVERSE_TOKEN is not set; skipping GitVerse mirror."
+            exit 0
+          fi
 
           SRC="https://x-access-token:${GH_TOKEN}@github.com/${GH_REPO}.git"
           DST="https://${GV_TOKEN}@gitverse.ru/${GV_REPO}.git"
