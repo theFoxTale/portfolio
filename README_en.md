@@ -1,21 +1,111 @@
-**Язык:** [English](README_en.md) | [Русский](README.md)
+**Language:** [English](README_en.md) | [Русский](README.md)
 
-## Photographer's portfolio
-This is my homework for [RS School](https://rs.school/), JS / Front-end Course 2025 Q3
+# Anna Demyanovich — Photographer Portfolio
 
-1. **Task**: [text](https://github.com/rolling-scopes-school/tasks/blob/master/stage1/tasks/portfolio/portfolio-part-1.md) + [design](https://www.figma.com/design/iFsApEUsf6tPwXas56gOiT/Portfolio?node-id=26-1637&t=L9uya9x6r8IlKFzP-0)
-2. **Deploy** (you may see how site works): [link](https://thefoxtale.github.io/portfolio/)
+A vanilla HTML, SCSS, and JavaScript photographer landing page for [RS School](https://rs.school/), JS / Front-end Course 2025 Q3.
 
-![Main](assets/screenshots/main.jpg)
+[![GitHub Pages](https://img.shields.io/badge/demo-GitHub%20Pages-0A66C2?style=flat&logo=githubpages&logoColor=white)](https://thefoxtale.github.io/portfolio/)
+[![HTML5](https://img.shields.io/badge/markup-HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://thefoxtale.github.io/portfolio/)
+[![Sass](https://img.shields.io/badge/styles-Sass-CC6699?style=flat&logo=sass&logoColor=white)](https://thefoxtale.github.io/portfolio/)
+[![JavaScript](https://img.shields.io/badge/scripts-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://thefoxtale.github.io/portfolio/)
+[![RS School](https://img.shields.io/badge/RS%20School-JS%20%2F%20Front--end-000000?style=flat)](https://rs.school/courses/javascript)
+[![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-lightgrey?style=flat)](#license)
+
+## Live demo
+
+**Site:** [https://thefoxtale.github.io/portfolio/](https://thefoxtale.github.io/portfolio/)
+
+**Task:** [brief](https://github.com/rolling-scopes-school/tasks/blob/master/stage1/tasks/portfolio/portfolio-part-1.md) · **Design:** [Figma](https://www.figma.com/design/iFsApEUsf6tPwXas56gOiT/Portfolio?node-id=26-1637&t=L9uya9x6r8IlKFzP-0)
+
+## Screenshot
+
+![Desktop preview at 1440px](assets/screenshots/main.jpg)
 
 <details>
 <summary>Additional screenshots</summary>
 
-![Medium](assets/screenshots/medium.jpg)
-![Small](assets/screenshots/small.jpg)
+![Medium width](assets/screenshots/medium.jpg)
+![Small width](assets/screenshots/small.jpg)
 </details>
 
-### Task Description:
+## About
+
+Course landing page for photographer **Vera**: hero, about, gallery, pricing packages, FAQ, and a booking form.  
+Self-hosted fonts, semantic markup, 1440 / 768 / 380 breakpoints, and vanilla JavaScript for interactivity.
+
+## Features
+
+- Semantic landmarks (`header`, `main`, `footer`, `nav`, `section`, `dialog`)
+- Accessible buttons and forms, visible `:focus-visible`, FAQ and burger ARIA
+- CSS custom properties for color and motion; `prefers-reduced-motion`
+- Self-hosted **Oswald** and **Mulish** (no font CDN)
+- Burger menu, portfolio slider, FAQ accordion, booking modal
+- WhatsApp booking with name, phone, and selected package
+- Hover effects only on pointer devices
+- GitHub Pages deploy
+
+## Tech stack
+
+| Area | Tools |
+|------|--------|
+| Markup | HTML5 |
+| Styles | SCSS (section modules, Flexbox, custom properties) |
+| Scripts | Vanilla JavaScript (ES modules) |
+| Fonts | Oswald, Mulish (local `.woff` / `.woff2`) |
+| Assets | SVG, WebP, PNG slider cursors |
+| Build | Sass (`npm run build-css` / `watch-css`) |
+| Deploy | GitHub Pages |
+
+## Getting started
+
+```bash
+git clone https://github.com/theFoxTale/portfolio.git
+cd portfolio
+npm i
+npm run watch-css
+```
+
+Open `index.html` in a browser, or serve locally:
+
+```bash
+npx serve .
+```
+
+Then visit the URL printed in the terminal (usually `http://localhost:3000`).
+
+- `npm run build-css` — one-off CSS build
+- `npm run build-css-prod` — minified CSS
+- `npm run lint` — JavaScript syntax check
+
+## Project structure
+
+```text
+portfolio/
+├── .github/
+│   ├── pull_request_template.md
+│   └── workflows/          # Pages deploy, GitVerse mirror
+├── index.html
+├── css/                    # Compiled CSS for GitHub Pages
+├── scss/
+│   ├── index.scss
+│   └── sections/           # Per-section styles
+├── js/                     # ES modules: burger, slider, FAQ, forms
+├── assets/
+│   ├── fonts/              # Oswald, Mulish
+│   ├── img/                # SVG, WebP, PNG
+│   └── screenshots/
+├── package.json
+├── README.md
+└── README_en.md
+```
+
+## RS School task
+
+This repository follows the **Portfolio. Part 1–2** assignment for JS / Front-end:
+
+- Layout at 1440 / 768 / 380
+- Burger, slider, FAQ, and modal
+- English content, GitHub Pages deploy
 
 <details>
 <summary>Part 1: Responsive Layout</summary>
@@ -126,3 +216,13 @@ This is my homework for [RS School](https://rs.school/), JS / Front-end Course 2
     - [x] When the button is clicked, the page scrolls to About section: +4
 </details>
 
+## Contact
+
+- GitHub: [theFoxTale](https://github.com/theFoxTale)
+- Telegram: [@annie_in_life](https://t.me/annie_in_life)
+- Email: [makarenkoanna@yandex.ru](mailto:makarenkoanna@yandex.ru)
+
+## License
+
+Personal portfolio project for educational purposes (RS School).  
+All rights reserved unless otherwise noted.

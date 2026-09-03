@@ -1,37 +1,80 @@
-let accordionStorageKey = 'faqSelectedItem';
+const accordionStorageKey = 'faqSelectedItem';
 
-function addFaqButtonClicker() {
-    document.querySelectorAll('.question-header').forEach((item, index) => {
-        item.addEventListener('click', function () {
-            const buttonContainer = this.querySelector('.question-button-container');
-            const isActiveAnswer = buttonContainer.classList.contains('active');
+function getQuestions() {
+    return document.querySelectorAll('.question-div');
+}
 
-            if (!isActiveAnswer) {
-                const allQuestions = document.querySelectorAll('.question-div');
-                allQuestions.forEach(question => {
-                    question.querySelector('.answer-text').classList.remove('active');
-                    question.querySelector('.question-button-container').classList.remove('active');
-                });
+function closeAll(questions) {
+    questions.forEach(question => {
+        const answer = question.querySelector('.answer-text');
+        answer?.classList.remove('active');
+        answer?.setAttribute('aria-hidden', 'true');
+        question.querySelector('.question-button-container')?.classList.remove('active');
+        question.querySelector('.question-header')?.setAttribute('aria-expanded', 'false');
+    });
+}
 
-                localStorage.setItem(accordionStorageKey, (index + ''));
+function openItem(questions, index) {
+    closeAll(questions);
+
+    const question = questions[index];
+    if (!question) {
+        return;
+    }
+
+    const answer = question.querySelector('.answer-text');
+    question.querySelector('.question-button-container')?.classList.add('active');
+    answer?.classList.add('active');
+    answer?.setAttribute('aria-hidden', 'false');
+    question.querySelector('.question-header')?.setAttribute('aria-expanded', 'true');
+}
+
+function persistIndex(index) {
+    localStorage.setItem(accordionStorageKey, String(index));
+}
+
+function readStoredIndex(count) {
+    const raw = localStorage.getItem(accordionStorageKey);
+    const index = raw === null ? 0 : Number.parseInt(raw, 10);
+
+    if (!Number.isInteger(index) || index < 0 || index >= count) {
+        return 0;
+    }
+
+    return index;
+}
+
+function addFaqButtonClicker(questions) {
+    questions.forEach((item, index) => {
+        const header = item.querySelector('.question-header');
+        if (!header) {
+            return;
+        }
+
+        header.addEventListener('click', () => {
+            const isOpen = header.querySelector('.question-button-container')?.classList.contains('active');
+
+            if (isOpen) {
+                closeAll(questions);
             } else {
-                localStorage.setItem(accordionStorageKey, '0');
+                openItem(questions, index);
             }
 
-            buttonContainer.classList.toggle('active');
-
-            const answer = this.nextElementSibling;
-            answer.classList.toggle('active');
+            persistIndex(index);
         });
     });
 }
 
-function openSelectedFaqQuestion() {
-    const selectedItem = localStorage.getItem(accordionStorageKey) ?? '0';
-    document.querySelectorAll('.question-header')[selectedItem].click();
+function openSelectedFaqQuestion(questions) {
+    openItem(questions, readStoredIndex(questions.length));
 }
 
 export default function initAccordion() {
-    addFaqButtonClicker();
-    openSelectedFaqQuestion();
+    const questions = getQuestions();
+    if (!questions.length) {
+        return;
+    }
+
+    addFaqButtonClicker(questions);
+    openSelectedFaqQuestion(questions);
 }

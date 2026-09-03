@@ -36,10 +36,14 @@
     align-self: end;
 }
 
+.header-icon-container img {
+    display: block;
+    width: 19px;
+    height: 17px;
+}
+
 .header-navigation-container {
     padding-right: 20px;
-    transition: opacity 1s;
-    opacity: 1;
 }
 
 .portfolio-navigation {
@@ -59,7 +63,7 @@
     text-transform: uppercase;
     text-decoration: none;
     color: var(--portfolio-white);
-    transition: color 1s;
+    transition: color var(--motion-hover);
 }
 
 .no-hover {
@@ -80,6 +84,10 @@
 
 .button-div {
     height: 60px;
+    width: 100%;
+    padding: 0;
+    border: none;
+    font-family: inherit;
     font-size: 16px;
     line-height: 60px;
     cursor: pointer;
@@ -87,19 +95,32 @@
     text-transform: uppercase;
     color: var(--portfolio-white);
     background-color: var(--portfolio-black);
-    transition: background-color 1s,
-                color 1s;
+    appearance: none;
+    transition: background-color var(--motion-hover),
+                color var(--motion-hover);
 }
 
-.button-div.disabled {
+.button-div.disabled,
+.button-div:disabled {
     background-color: var(--portfolio-grey);
+    color: var(--portfolio-white);
+    opacity: 1;
     cursor: default;
+    pointer-events: none;
 }
 
 .menu-logo-container {
-    transition: opacity 1s;
     opacity: 0;
     display: none;
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+.menu-logo-container,
+.menu-logo-container * {
+    cursor: pointer;
 }
 
 .menu-logo {
@@ -110,9 +131,10 @@
 }
 
 .menu-line {
+    display: block;
     height: 2px;
     background-color: var(--portfolio-white);
-    transition: background-color 1s, transform 1s ease;
+    transition: background-color var(--motion-hover), transform var(--motion-icon) ease;
 }
 
 .menu-upper-line {
@@ -132,36 +154,12 @@
     transform: rotate(-45deg) translateY(-6px);
 }
 
-.burger-menu-container {
-    position: fixed;
-    opacity: 0;
-    top: 60px;
-    height: calc(100vh - 60px);
-    left: 0;
-    width: 100%;
-    transform: translateX(100%);
-    transition: transform 2s, opacity 1s;
-}
-
-.burger-menu-container.active {
-    transform: translateX(0);
-    opacity: 1;
-}
-
-.burger-menu-list {
-    flex-direction: column;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 36px;
-}
-
 @media (hover: hover) {
     .navigation-text:hover {
         color: var(--portfolio-red);
     }
 
-    .button-div:hover:not(.disabled) {
+    .button-div:hover:not(.disabled, :disabled) {
         background-color: var(--portfolio-red);
         color: var(--portfolio-black);
     }
@@ -177,7 +175,36 @@
     }
 
     .header-navigation-container {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+        padding-right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--portfolio-black);
         opacity: 0;
+        transform: translateX(100%);
+        pointer-events: none;
+        z-index: 4;
+    }
+
+    .header-navigation-container.is-animating {
+        transition: transform var(--motion-burger), opacity var(--motion-burger-fade);
+    }
+
+    .header-navigation-container.active {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .header-navigation-container .portfolio-navigation {
+        height: auto;
+        flex-direction: column;
+        gap: 36px;
     }
 
     .menu-logo-container {
@@ -192,10 +219,6 @@
         display: flex;
         flex-direction: column;
         gap: 36px;
-    }
-
-    .header-navigation-container {
-        display: none;
     }
 }
 

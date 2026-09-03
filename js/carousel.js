@@ -1,4 +1,6 @@
-let scrollInterval;
+import { prefersReducedMotion, reducedMotionQuery } from "./reduced-motion.js";
+
+let scrollFrameId;
 let carouselShift = 0;
 
 let portfolioCarousel, portfolioWrapper;
@@ -9,15 +11,21 @@ let touchShift = 0;
 
 /* Перемещение мышкой */
 function startScroll(direction) {
-    if (touchIsActive) return;
+    if (touchIsActive || prefersReducedMotion()) return;
 
-    scrollInterval = setInterval(() => {
+    stopScroll();
+
+    function tick() {
         carouselShift = shiftCarousel(direction * 10, direction);
-    }, 10);
+        scrollFrameId = requestAnimationFrame(tick);
+    }
+
+    scrollFrameId = requestAnimationFrame(tick);
 }
 
 function stopScroll() {
-    clearInterval(scrollInterval);
+    cancelAnimationFrame(scrollFrameId);
+    scrollFrameId = null;
 }
 
 /* Сдвиг карусели */
@@ -65,29 +73,36 @@ function touchEnd() {
 }
 
 /* Подключение событий */
-function initCarouselElements() {
-    portfolioCarousel = document.querySelector('.slider-carousel');
-    portfolioWrapper = document.querySelector('.slider-wrapper');
-}
-
 function addCarouselMouseEvents() {
     const leftDiv = document.querySelector('.zone-left');
-    leftDiv.addEventListener('mouseenter', () => startScroll(-1))
+    const rightDiv = document.querySelector('.zone-right');
+
+    if (!leftDiv || !rightDiv) {
+        return;
+    }
+
+    leftDiv.addEventListener('mouseenter', () => startScroll(-1));
     leftDiv.addEventListener('mouseleave', stopScroll);
 
-    const rightDiv = document.querySelector('.zone-right');
-    rightDiv.addEventListener('mouseenter', () => startScroll(1))
+    rightDiv.addEventListener('mouseenter', () => startScroll(1));
     rightDiv.addEventListener('mouseleave', stopScroll);
 }
 
 function addCarouselTouchEvents() {
     portfolioWrapper.addEventListener('touchstart', event => touchStart(event.touches[0]));
-    portfolioWrapper.addEventListener('touchmove', event => touchMove(event));
+    portfolioWrapper.addEventListener('touchmove', event => touchMove(event), { passive: false });
     portfolioWrapper.addEventListener('touchend', touchEnd);
 }
 
 export default function initCarousel() {
-    initCarouselElements();
+    portfolioCarousel = document.querySelector('.slider-carousel');
+    portfolioWrapper = document.querySelector('.slider-wrapper');
+
+    if (!portfolioCarousel || !portfolioWrapper) {
+        return;
+    }
+
     addCarouselMouseEvents();
     addCarouselTouchEvents();
+    reducedMotionQuery.addEventListener('change', stopScroll);
 }
