@@ -81,7 +81,9 @@ Then visit the URL printed in the terminal (usually `http://localhost:3000`).
 
 ```text
 portfolio/
-├── .github/                # Pull request template
+├── .github/
+│   ├── pull_request_template.md
+│   └── workflows/          # Pages deploy, GitVerse mirror
 ├── index.html
 ├── css/                    # Compiled CSS for GitHub Pages
 ├── scss/

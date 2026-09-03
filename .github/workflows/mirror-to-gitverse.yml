@@ -1,0 +1,45 @@
+name: Mirror to GitVerse
+
+on:
+  push:
+    branches: ["**"]
+    tags: ["**"]
+  delete:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gitverse-mirror
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    if: ${{ secrets.GITVERSE_TOKEN != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mirror branches and tags to GitVerse
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GV_TOKEN: ${{ secrets.GITVERSE_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          GV_REPO: theFoxTale/portfolio
+        run: |
+          set -euo pipefail
+
+          SRC="https://x-access-token:${GH_TOKEN}@github.com/${GH_REPO}.git"
+          DST="https://${GV_TOKEN}@gitverse.ru/${GV_REPO}.git"
+
+          git init --bare repo.git
+          cd repo.git
+
+          git remote add origin "$SRC"
+          git fetch --prune --prune-tags origin \
+            "+refs/heads/*:refs/heads/*" \
+            "+refs/tags/*:refs/tags/*"
+
+          git remote add gitverse "$DST"
+          git push --prune gitverse \
+            "+refs/heads/*:refs/heads/*" \
+            "+refs/tags/*:refs/tags/*"

@@ -81,7 +81,9 @@ npx serve .
 
 ```text
 portfolio/
-├── .github/                # Шаблон pull request
+├── .github/
+│   ├── pull_request_template.md
+│   └── workflows/          # Pages deploy, GitVerse mirror
 ├── index.html
 ├── css/                    # Скомпилированный CSS для GitHub Pages
 ├── scss/
