@@ -24,18 +24,12 @@
     object-position: center;
 }
 
-.about-photo-third {
-    opacity: 1;
-    transition: opacity 1s;
-}
-
 @media (max-width: 768px) {
     .about-container {
         flex-direction: column;
     }
 
     .about-photo-third {
-        opacity: 0;
         display: none;
     }
 }

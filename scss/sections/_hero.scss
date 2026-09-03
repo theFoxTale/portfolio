@@ -15,8 +15,6 @@
     transform: rotate(180deg);
     gap: 12px;
     flex-shrink: 0;
-    transition: opacity 2s;
-    opacity: 1;
 }
 
 .vertical-line {
@@ -71,8 +69,6 @@
 .first-hero-image-background {
     width: clamp(150px, 15vw, 220px);
     margin: 0;
-    opacity: 1;
-    transition: opacity 2s;
     align-self: center;
     flex-shrink: 0;
     display: flex;
@@ -114,12 +110,6 @@
     }
 }
 
-@media (max-width: 1320px) {
-    .first-hero-image-background {
-        opacity: 0;
-    }
-}
-
 @media (max-width: 1300px) {
     .first-hero-image-background {
         display: none;
@@ -129,12 +119,6 @@
 @media (max-width: 800px) {
     .hero-right-part {
         gap: 0;
-    }
-}
-
-@media (max-width: 764px) {
-    .hero-left-part {
-        opacity: 0;
     }
 }
 

@@ -1,10 +1,11 @@
 let resizeTimeout;
 let isBurgerMenuOpen = false;
+let burgerMenu;
+let menuIcon;
 
 function toggleBurgerMenu() {
     isBurgerMenuOpen = !isBurgerMenuOpen;
 
-    const burgerMenu = document.querySelector('.header-navigation-container');
     burgerMenu.classList.toggle('active');
 
     const menuIconLines = document.querySelectorAll('.menu-line');
@@ -14,12 +15,11 @@ function toggleBurgerMenu() {
 }
 
 function addMenuIconClicker() {
-    const menuIcon = document.querySelector('.menu-logo-container');
     menuIcon.addEventListener('click', toggleBurgerMenu);
 }
 
 function addBurgerMenuClicker() {
-    const burgerMenuItems = document.querySelectorAll('.header-navigation-container a');
+    const burgerMenuItems = burgerMenu.querySelectorAll('a');
     burgerMenuItems.forEach(item => item.addEventListener('click', function(event) {
         if (!isBurgerMenuOpen) {
             return;
@@ -32,12 +32,9 @@ function addBurgerMenuClicker() {
 
         if (targetSection) {
             toggleBurgerMenu();
-
-            setTimeout(() => {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }, 500);
+            targetSection.scrollIntoView({
+                behavior: 'smooth'
+            });
         }
     }));
 }
@@ -52,6 +49,13 @@ function handleWindowResize() {
 }
 
 export default function initBurgerMenu() {
+    burgerMenu = document.querySelector('.header-navigation-container');
+    menuIcon = document.querySelector('.menu-logo-container');
+
+    if (!burgerMenu || !menuIcon) {
+        return;
+    }
+
     addMenuIconClicker();
     addBurgerMenuClicker();
     window.addEventListener('resize', handleWindowResize);

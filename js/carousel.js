@@ -71,18 +71,18 @@ function touchEnd() {
 }
 
 /* Подключение событий */
-function initCarouselElements() {
-    portfolioCarousel = document.querySelector('.slider-carousel');
-    portfolioWrapper = document.querySelector('.slider-wrapper');
-}
-
 function addCarouselMouseEvents() {
     const leftDiv = document.querySelector('.zone-left');
-    leftDiv.addEventListener('mouseenter', () => startScroll(-1))
+    const rightDiv = document.querySelector('.zone-right');
+
+    if (!leftDiv || !rightDiv) {
+        return;
+    }
+
+    leftDiv.addEventListener('mouseenter', () => startScroll(-1));
     leftDiv.addEventListener('mouseleave', stopScroll);
 
-    const rightDiv = document.querySelector('.zone-right');
-    rightDiv.addEventListener('mouseenter', () => startScroll(1))
+    rightDiv.addEventListener('mouseenter', () => startScroll(1));
     rightDiv.addEventListener('mouseleave', stopScroll);
 }
 
@@ -93,7 +93,13 @@ function addCarouselTouchEvents() {
 }
 
 export default function initCarousel() {
-    initCarouselElements();
+    portfolioCarousel = document.querySelector('.slider-carousel');
+    portfolioWrapper = document.querySelector('.slider-wrapper');
+
+    if (!portfolioCarousel || !portfolioWrapper) {
+        return;
+    }
+
     addCarouselMouseEvents();
     addCarouselTouchEvents();
 }

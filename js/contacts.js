@@ -1,4 +1,4 @@
-import { bindBookingFields } from "./form-validation.js";
+import { bindBookingFields, openBookingWhatsApp } from "./form-validation.js";
 
 export default function initContacts() {
     const nameInput = document.querySelector('.contacts-name');
@@ -9,5 +9,10 @@ export default function initContacts() {
         return;
     }
 
-    bindBookingFields({ nameInput, phoneInput, submitButton });
+    bindBookingFields({
+        nameInput,
+        phoneInput,
+        submitButton,
+        onValidSubmit: ({ name, phone }) => openBookingWhatsApp(name, phone),
+    });
 }

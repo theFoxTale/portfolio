@@ -384,8 +384,6 @@ select:-webkit-autofill:focus {
   transform: rotate(180deg);
   gap: 12px;
   flex-shrink: 0;
-  transition: opacity 2s;
-  opacity: 1;
 }
 
 .vertical-line {
@@ -439,8 +437,6 @@ select:-webkit-autofill:focus {
 .first-hero-image-background {
   width: clamp(150px, 15vw, 220px);
   margin: 0;
-  opacity: 1;
-  transition: opacity 2s;
   align-self: center;
   flex-shrink: 0;
   display: flex;
@@ -481,11 +477,6 @@ select:-webkit-autofill:focus {
     color: var(--portfolio-red);
   }
 }
-@media (max-width: 1320px) {
-  .first-hero-image-background {
-    opacity: 0;
-  }
-}
 @media (max-width: 1300px) {
   .first-hero-image-background {
     display: none;
@@ -494,11 +485,6 @@ select:-webkit-autofill:focus {
 @media (max-width: 800px) {
   .hero-right-part {
     gap: 0;
-  }
-}
-@media (max-width: 764px) {
-  .hero-left-part {
-    opacity: 0;
   }
 }
 @media (max-width: 759px) {
@@ -545,17 +531,11 @@ select:-webkit-autofill:focus {
   object-position: center;
 }
 
-.about-photo-third {
-  opacity: 1;
-  transition: opacity 1s;
-}
-
 @media (max-width: 768px) {
   .about-container {
     flex-direction: column;
   }
   .about-photo-third {
-    opacity: 0;
     display: none;
   }
 }

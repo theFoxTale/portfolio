@@ -1,23 +1,34 @@
-const phonePattern = /^\+1\s\([0-9]{3}\)\s[0-9]{3}-[0-9]{4}$/;
+export const PHONE_COUNTRY_CODE = '+1';
+export const PHONE_PREFIX = `${PHONE_COUNTRY_CODE} `;
+export const BOOKING_WHATSAPP_NUMBER = '12349843572';
+
+const phonePattern = new RegExp(
+    `^\\${PHONE_COUNTRY_CODE}\\s\\([0-9]{3}\\)\\s[0-9]{3}-[0-9]{4}$`
+);
 
 export function sanitizeName(value) {
-    return value.replace(/[^a-zA-Zа-яА-ЯёЁ]/g, '');
+    return value
+        .replace(/[^a-zA-Zа-яА-ЯёЁ\s'\-]/g, '')
+        .replace(/^\s+/, '')
+        .replace(/\s{2,}/g, ' ');
 }
 
 export function isNameValid(value) {
-    return Boolean(value && value.length >= 3);
+    const name = value.trim();
+    return name.length >= 3 && /[a-zA-Zа-яА-ЯёЁ]/.test(name);
 }
 
 export function formatPhone(value) {
     let formattedValue = value.replace(/[^\d+]/g, '');
+    const prefixPattern = new RegExp(`^\\+?${PHONE_COUNTRY_CODE.replace('+', '')}?`);
 
-    if (!formattedValue.startsWith('+1')) {
-        formattedValue = '+1' + formattedValue.replace(/^\+?1?/, '');
+    if (!formattedValue.startsWith(PHONE_COUNTRY_CODE)) {
+        formattedValue = PHONE_COUNTRY_CODE + formattedValue.replace(prefixPattern, '');
     }
 
-    if (formattedValue.length > 2) {
-        const numbers = formattedValue.substring(2).replace(/\D/g, '');
-        formattedValue = '+1 ';
+    if (formattedValue.length > PHONE_COUNTRY_CODE.length) {
+        const numbers = formattedValue.substring(PHONE_COUNTRY_CODE.length).replace(/\D/g, '');
+        formattedValue = PHONE_PREFIX;
 
         if (numbers.length > 0) {
             formattedValue += '(' + numbers.substring(0, 3);
@@ -37,6 +48,21 @@ export function isPhoneValid(value) {
     return phonePattern.test(value);
 }
 
+export function openBookingWhatsApp(name, phone, packageName) {
+    const bookingLine = packageName
+        ? `I would like to book the ${packageName} package.`
+        : 'I would like to book a shoot.';
+    const text = encodeURIComponent(
+        `Hello! My name is ${name}. ${bookingLine} My phone: ${phone}`
+    );
+
+    window.open(
+        `https://wa.me/${BOOKING_WHATSAPP_NUMBER}?text=${text}`,
+        '_blank',
+        'noopener,noreferrer'
+    );
+}
+
 export function bindBookingFields({ nameInput, phoneInput, submitButton, onValidSubmit }) {
     let isNameOk = false;
     let isPhoneOk = false;
@@ -47,7 +73,7 @@ export function bindBookingFields({ nameInput, phoneInput, submitButton, onValid
             : submitButton.classList.add('disabled');
     }
 
-    function reset(name = '', phone = '+1 ') {
+    function reset(name = '', phone = PHONE_PREFIX) {
         nameInput.value = name;
         phoneInput.value = phone;
         isNameOk = isNameValid(sanitizeName(name));
@@ -72,7 +98,10 @@ export function bindBookingFields({ nameInput, phoneInput, submitButton, onValid
             return;
         }
 
-        onValidSubmit?.();
+        onValidSubmit?.({
+            name: nameInput.value.trim(),
+            phone: phoneInput.value,
+        });
     });
 
     updateSubmitButton();
